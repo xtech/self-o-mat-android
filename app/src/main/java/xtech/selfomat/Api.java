@@ -34,7 +34,6 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:xtech.selfomat.Status)
       StatusOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use Status.newBuilder() to construct.
     private Status(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -53,9 +52,6 @@ public final class Api {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -67,22 +63,21 @@ public final class Api {
             case 0:
               done = true;
               break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
             case 8: {
               int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
               xtech.selfomat.Api.Status.State value = xtech.selfomat.Api.Status.State.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
                 bitField0_ |= 0x00000001;
                 currentState_ = rawValue;
-              }
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
               }
               break;
             }
@@ -103,7 +98,6 @@ public final class Api {
       return xtech.selfomat.Api.internal_static_xtech_selfomat_Status_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return xtech.selfomat.Api.internal_static_xtech_selfomat_Status_fieldAccessorTable
@@ -217,19 +211,17 @@ public final class Api {
      * <code>required .xtech.selfomat.Status.State current_state = 1;</code>
      */
     public boolean hasCurrentState() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>required .xtech.selfomat.Status.State current_state = 1;</code>
      */
     public xtech.selfomat.Api.Status.State getCurrentState() {
-      @SuppressWarnings("deprecation")
       xtech.selfomat.Api.Status.State result = xtech.selfomat.Api.Status.State.valueOf(currentState_);
       return result == null ? xtech.selfomat.Api.Status.State.INITIALIZING : result;
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -243,22 +235,20 @@ public final class Api {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeEnum(1, currentState_);
       }
       unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, currentState_);
       }
@@ -267,6 +257,7 @@ public final class Api {
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -277,12 +268,13 @@ public final class Api {
       }
       xtech.selfomat.Api.Status other = (xtech.selfomat.Api.Status) obj;
 
-      if (hasCurrentState() != other.hasCurrentState()) return false;
+      boolean result = true;
+      result = result && (hasCurrentState() == other.hasCurrentState());
       if (hasCurrentState()) {
-        if (currentState_ != other.currentState_) return false;
+        result = result && currentState_ == other.currentState_;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -291,7 +283,7 @@ public final class Api {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasCurrentState()) {
         hash = (37 * hash) + CURRENT_STATE_FIELD_NUMBER;
         hash = (53 * hash) + currentState_;
@@ -301,17 +293,6 @@ public final class Api {
       return hash;
     }
 
-    public static xtech.selfomat.Api.Status parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static xtech.selfomat.Api.Status parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static xtech.selfomat.Api.Status parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -371,7 +352,6 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -379,7 +359,6 @@ public final class Api {
     public static Builder newBuilder(xtech.selfomat.Api.Status prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -403,7 +382,6 @@ public final class Api {
         return xtech.selfomat.Api.internal_static_xtech_selfomat_Status_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return xtech.selfomat.Api.internal_static_xtech_selfomat_Status_fieldAccessorTable
@@ -426,7 +404,6 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         currentState_ = 0;
@@ -434,18 +411,15 @@ public final class Api {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return xtech.selfomat.Api.internal_static_xtech_selfomat_Status_descriptor;
       }
 
-      @java.lang.Override
       public xtech.selfomat.Api.Status getDefaultInstanceForType() {
         return xtech.selfomat.Api.Status.getDefaultInstance();
       }
 
-      @java.lang.Override
       public xtech.selfomat.Api.Status build() {
         xtech.selfomat.Api.Status result = buildPartial();
         if (!result.isInitialized()) {
@@ -454,12 +428,11 @@ public final class Api {
         return result;
       }
 
-      @java.lang.Override
       public xtech.selfomat.Api.Status buildPartial() {
         xtech.selfomat.Api.Status result = new xtech.selfomat.Api.Status(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
         result.currentState_ = currentState_;
@@ -468,39 +441,32 @@ public final class Api {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
+          Object value) {
+        return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof xtech.selfomat.Api.Status) {
           return mergeFrom((xtech.selfomat.Api.Status)other);
@@ -520,7 +486,6 @@ public final class Api {
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasCurrentState()) {
           return false;
@@ -528,7 +493,6 @@ public final class Api {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -553,13 +517,12 @@ public final class Api {
        * <code>required .xtech.selfomat.Status.State current_state = 1;</code>
        */
       public boolean hasCurrentState() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>required .xtech.selfomat.Status.State current_state = 1;</code>
        */
       public xtech.selfomat.Api.Status.State getCurrentState() {
-        @SuppressWarnings("deprecation")
         xtech.selfomat.Api.Status.State result = xtech.selfomat.Api.Status.State.valueOf(currentState_);
         return result == null ? xtech.selfomat.Api.Status.State.INITIALIZING : result;
       }
@@ -584,13 +547,11 @@ public final class Api {
         onChanged();
         return this;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -612,12 +573,11 @@ public final class Api {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<Status>
         PARSER = new com.google.protobuf.AbstractParser<Status>() {
-      @java.lang.Override
       public Status parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Status(input, extensionRegistry);
+          return new Status(input, extensionRegistry);
       }
     };
 
@@ -630,8 +590,5999 @@ public final class Api {
       return PARSER;
     }
 
-    @java.lang.Override
     public xtech.selfomat.Api.Status getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface IntUpdateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xtech.selfomat.IntUpdate)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int64 value = 1;</code>
+     */
+    boolean hasValue();
+    /**
+     * <code>required int64 value = 1;</code>
+     */
+    long getValue();
+  }
+  /**
+   * Protobuf type {@code xtech.selfomat.IntUpdate}
+   */
+  public  static final class IntUpdate extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:xtech.selfomat.IntUpdate)
+      IntUpdateOrBuilder {
+    // Use IntUpdate.newBuilder() to construct.
+    private IntUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private IntUpdate() {
+      value_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private IntUpdate(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_IntUpdate_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_IntUpdate_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              xtech.selfomat.Api.IntUpdate.class, xtech.selfomat.Api.IntUpdate.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private long value_;
+    /**
+     * <code>required int64 value = 1;</code>
+     */
+    public boolean hasValue() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 value = 1;</code>
+     */
+    public long getValue() {
+      return value_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof xtech.selfomat.Api.IntUpdate)) {
+        return super.equals(obj);
+      }
+      xtech.selfomat.Api.IntUpdate other = (xtech.selfomat.Api.IntUpdate) obj;
+
+      boolean result = true;
+      result = result && (hasValue() == other.hasValue());
+      if (hasValue()) {
+        result = result && (getValue()
+            == other.getValue());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasValue()) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getValue());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static xtech.selfomat.Api.IntUpdate parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.IntUpdate parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.IntUpdate parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.IntUpdate parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.IntUpdate parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.IntUpdate parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.IntUpdate parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.IntUpdate parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.IntUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.IntUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(xtech.selfomat.Api.IntUpdate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code xtech.selfomat.IntUpdate}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xtech.selfomat.IntUpdate)
+        xtech.selfomat.Api.IntUpdateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_IntUpdate_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_IntUpdate_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                xtech.selfomat.Api.IntUpdate.class, xtech.selfomat.Api.IntUpdate.Builder.class);
+      }
+
+      // Construct using xtech.selfomat.Api.IntUpdate.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        value_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_IntUpdate_descriptor;
+      }
+
+      public xtech.selfomat.Api.IntUpdate getDefaultInstanceForType() {
+        return xtech.selfomat.Api.IntUpdate.getDefaultInstance();
+      }
+
+      public xtech.selfomat.Api.IntUpdate build() {
+        xtech.selfomat.Api.IntUpdate result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public xtech.selfomat.Api.IntUpdate buildPartial() {
+        xtech.selfomat.Api.IntUpdate result = new xtech.selfomat.Api.IntUpdate(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.value_ = value_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof xtech.selfomat.Api.IntUpdate) {
+          return mergeFrom((xtech.selfomat.Api.IntUpdate)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(xtech.selfomat.Api.IntUpdate other) {
+        if (other == xtech.selfomat.Api.IntUpdate.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasValue()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        xtech.selfomat.Api.IntUpdate parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (xtech.selfomat.Api.IntUpdate) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long value_ ;
+      /**
+       * <code>required int64 value = 1;</code>
+       */
+      public boolean hasValue() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 value = 1;</code>
+       */
+      public long getValue() {
+        return value_;
+      }
+      /**
+       * <code>required int64 value = 1;</code>
+       */
+      public Builder setValue(long value) {
+        bitField0_ |= 0x00000001;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 value = 1;</code>
+       */
+      public Builder clearValue() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        value_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:xtech.selfomat.IntUpdate)
+    }
+
+    // @@protoc_insertion_point(class_scope:xtech.selfomat.IntUpdate)
+    private static final xtech.selfomat.Api.IntUpdate DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new xtech.selfomat.Api.IntUpdate();
+    }
+
+    public static xtech.selfomat.Api.IntUpdate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<IntUpdate>
+        PARSER = new com.google.protobuf.AbstractParser<IntUpdate>() {
+      public IntUpdate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new IntUpdate(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<IntUpdate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<IntUpdate> getParserForType() {
+      return PARSER;
+    }
+
+    public xtech.selfomat.Api.IntUpdate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface BoolUpdateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xtech.selfomat.BoolUpdate)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required bool value = 1;</code>
+     */
+    boolean hasValue();
+    /**
+     * <code>required bool value = 1;</code>
+     */
+    boolean getValue();
+  }
+  /**
+   * Protobuf type {@code xtech.selfomat.BoolUpdate}
+   */
+  public  static final class BoolUpdate extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:xtech.selfomat.BoolUpdate)
+      BoolUpdateOrBuilder {
+    // Use BoolUpdate.newBuilder() to construct.
+    private BoolUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BoolUpdate() {
+      value_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BoolUpdate(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_BoolUpdate_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_BoolUpdate_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              xtech.selfomat.Api.BoolUpdate.class, xtech.selfomat.Api.BoolUpdate.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private boolean value_;
+    /**
+     * <code>required bool value = 1;</code>
+     */
+    public boolean hasValue() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required bool value = 1;</code>
+     */
+    public boolean getValue() {
+      return value_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof xtech.selfomat.Api.BoolUpdate)) {
+        return super.equals(obj);
+      }
+      xtech.selfomat.Api.BoolUpdate other = (xtech.selfomat.Api.BoolUpdate) obj;
+
+      boolean result = true;
+      result = result && (hasValue() == other.hasValue());
+      if (hasValue()) {
+        result = result && (getValue()
+            == other.getValue());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasValue()) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getValue());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static xtech.selfomat.Api.BoolUpdate parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.BoolUpdate parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.BoolUpdate parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.BoolUpdate parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.BoolUpdate parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.BoolUpdate parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.BoolUpdate parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.BoolUpdate parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.BoolUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.BoolUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(xtech.selfomat.Api.BoolUpdate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code xtech.selfomat.BoolUpdate}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xtech.selfomat.BoolUpdate)
+        xtech.selfomat.Api.BoolUpdateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_BoolUpdate_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_BoolUpdate_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                xtech.selfomat.Api.BoolUpdate.class, xtech.selfomat.Api.BoolUpdate.Builder.class);
+      }
+
+      // Construct using xtech.selfomat.Api.BoolUpdate.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        value_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_BoolUpdate_descriptor;
+      }
+
+      public xtech.selfomat.Api.BoolUpdate getDefaultInstanceForType() {
+        return xtech.selfomat.Api.BoolUpdate.getDefaultInstance();
+      }
+
+      public xtech.selfomat.Api.BoolUpdate build() {
+        xtech.selfomat.Api.BoolUpdate result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public xtech.selfomat.Api.BoolUpdate buildPartial() {
+        xtech.selfomat.Api.BoolUpdate result = new xtech.selfomat.Api.BoolUpdate(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.value_ = value_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof xtech.selfomat.Api.BoolUpdate) {
+          return mergeFrom((xtech.selfomat.Api.BoolUpdate)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(xtech.selfomat.Api.BoolUpdate other) {
+        if (other == xtech.selfomat.Api.BoolUpdate.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasValue()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        xtech.selfomat.Api.BoolUpdate parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (xtech.selfomat.Api.BoolUpdate) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private boolean value_ ;
+      /**
+       * <code>required bool value = 1;</code>
+       */
+      public boolean hasValue() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required bool value = 1;</code>
+       */
+      public boolean getValue() {
+        return value_;
+      }
+      /**
+       * <code>required bool value = 1;</code>
+       */
+      public Builder setValue(boolean value) {
+        bitField0_ |= 0x00000001;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool value = 1;</code>
+       */
+      public Builder clearValue() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        value_ = false;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:xtech.selfomat.BoolUpdate)
+    }
+
+    // @@protoc_insertion_point(class_scope:xtech.selfomat.BoolUpdate)
+    private static final xtech.selfomat.Api.BoolUpdate DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new xtech.selfomat.Api.BoolUpdate();
+    }
+
+    public static xtech.selfomat.Api.BoolUpdate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BoolUpdate>
+        PARSER = new com.google.protobuf.AbstractParser<BoolUpdate>() {
+      public BoolUpdate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BoolUpdate(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BoolUpdate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BoolUpdate> getParserForType() {
+      return PARSER;
+    }
+
+    public xtech.selfomat.Api.BoolUpdate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FloatUpdateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xtech.selfomat.FloatUpdate)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required float value = 1;</code>
+     */
+    boolean hasValue();
+    /**
+     * <code>required float value = 1;</code>
+     */
+    float getValue();
+  }
+  /**
+   * Protobuf type {@code xtech.selfomat.FloatUpdate}
+   */
+  public  static final class FloatUpdate extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:xtech.selfomat.FloatUpdate)
+      FloatUpdateOrBuilder {
+    // Use FloatUpdate.newBuilder() to construct.
+    private FloatUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FloatUpdate() {
+      value_ = 0F;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FloatUpdate(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 13: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readFloat();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_FloatUpdate_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_FloatUpdate_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              xtech.selfomat.Api.FloatUpdate.class, xtech.selfomat.Api.FloatUpdate.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private float value_;
+    /**
+     * <code>required float value = 1;</code>
+     */
+    public boolean hasValue() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required float value = 1;</code>
+     */
+    public float getValue() {
+      return value_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeFloat(1, value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(1, value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof xtech.selfomat.Api.FloatUpdate)) {
+        return super.equals(obj);
+      }
+      xtech.selfomat.Api.FloatUpdate other = (xtech.selfomat.Api.FloatUpdate) obj;
+
+      boolean result = true;
+      result = result && (hasValue() == other.hasValue());
+      if (hasValue()) {
+        result = result && (
+            java.lang.Float.floatToIntBits(getValue())
+            == java.lang.Float.floatToIntBits(
+                other.getValue()));
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasValue()) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getValue());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static xtech.selfomat.Api.FloatUpdate parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.FloatUpdate parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.FloatUpdate parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.FloatUpdate parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.FloatUpdate parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.FloatUpdate parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.FloatUpdate parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.FloatUpdate parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.FloatUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.FloatUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(xtech.selfomat.Api.FloatUpdate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code xtech.selfomat.FloatUpdate}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xtech.selfomat.FloatUpdate)
+        xtech.selfomat.Api.FloatUpdateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_FloatUpdate_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_FloatUpdate_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                xtech.selfomat.Api.FloatUpdate.class, xtech.selfomat.Api.FloatUpdate.Builder.class);
+      }
+
+      // Construct using xtech.selfomat.Api.FloatUpdate.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        value_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_FloatUpdate_descriptor;
+      }
+
+      public xtech.selfomat.Api.FloatUpdate getDefaultInstanceForType() {
+        return xtech.selfomat.Api.FloatUpdate.getDefaultInstance();
+      }
+
+      public xtech.selfomat.Api.FloatUpdate build() {
+        xtech.selfomat.Api.FloatUpdate result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public xtech.selfomat.Api.FloatUpdate buildPartial() {
+        xtech.selfomat.Api.FloatUpdate result = new xtech.selfomat.Api.FloatUpdate(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.value_ = value_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof xtech.selfomat.Api.FloatUpdate) {
+          return mergeFrom((xtech.selfomat.Api.FloatUpdate)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(xtech.selfomat.Api.FloatUpdate other) {
+        if (other == xtech.selfomat.Api.FloatUpdate.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasValue()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        xtech.selfomat.Api.FloatUpdate parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (xtech.selfomat.Api.FloatUpdate) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private float value_ ;
+      /**
+       * <code>required float value = 1;</code>
+       */
+      public boolean hasValue() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required float value = 1;</code>
+       */
+      public float getValue() {
+        return value_;
+      }
+      /**
+       * <code>required float value = 1;</code>
+       */
+      public Builder setValue(float value) {
+        bitField0_ |= 0x00000001;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float value = 1;</code>
+       */
+      public Builder clearValue() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        value_ = 0F;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:xtech.selfomat.FloatUpdate)
+    }
+
+    // @@protoc_insertion_point(class_scope:xtech.selfomat.FloatUpdate)
+    private static final xtech.selfomat.Api.FloatUpdate DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new xtech.selfomat.Api.FloatUpdate();
+    }
+
+    public static xtech.selfomat.Api.FloatUpdate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<FloatUpdate>
+        PARSER = new com.google.protobuf.AbstractParser<FloatUpdate>() {
+      public FloatUpdate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new FloatUpdate(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FloatUpdate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FloatUpdate> getParserForType() {
+      return PARSER;
+    }
+
+    public xtech.selfomat.Api.FloatUpdate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ReadOnlySettingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xtech.selfomat.ReadOnlySetting)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required string value = 2;</code>
+     */
+    boolean hasValue();
+    /**
+     * <code>required string value = 2;</code>
+     */
+    java.lang.String getValue();
+    /**
+     * <code>required string value = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getValueBytes();
+  }
+  /**
+   * Protobuf type {@code xtech.selfomat.ReadOnlySetting}
+   */
+  public  static final class ReadOnlySetting extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:xtech.selfomat.ReadOnlySetting)
+      ReadOnlySettingOrBuilder {
+    // Use ReadOnlySetting.newBuilder() to construct.
+    private ReadOnlySetting(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ReadOnlySetting() {
+      name_ = "";
+      value_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReadOnlySetting(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              name_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              value_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_ReadOnlySetting_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_ReadOnlySetting_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              xtech.selfomat.Api.ReadOnlySetting.class, xtech.selfomat.Api.ReadOnlySetting.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object value_;
+    /**
+     * <code>required string value = 2;</code>
+     */
+    public boolean hasValue() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string value = 2;</code>
+     */
+    public java.lang.String getValue() {
+      java.lang.Object ref = value_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          value_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string value = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getValueBytes() {
+      java.lang.Object ref = value_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        value_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof xtech.selfomat.Api.ReadOnlySetting)) {
+        return super.equals(obj);
+      }
+      xtech.selfomat.Api.ReadOnlySetting other = (xtech.selfomat.Api.ReadOnlySetting) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName()
+            .equals(other.getName());
+      }
+      result = result && (hasValue() == other.hasValue());
+      if (hasValue()) {
+        result = result && getValue()
+            .equals(other.getValue());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasValue()) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getValue().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static xtech.selfomat.Api.ReadOnlySetting parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.ReadOnlySetting parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.ReadOnlySetting parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.ReadOnlySetting parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.ReadOnlySetting parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.ReadOnlySetting parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.ReadOnlySetting parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.ReadOnlySetting parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.ReadOnlySetting parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.ReadOnlySetting parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(xtech.selfomat.Api.ReadOnlySetting prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code xtech.selfomat.ReadOnlySetting}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xtech.selfomat.ReadOnlySetting)
+        xtech.selfomat.Api.ReadOnlySettingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_ReadOnlySetting_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_ReadOnlySetting_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                xtech.selfomat.Api.ReadOnlySetting.class, xtech.selfomat.Api.ReadOnlySetting.Builder.class);
+      }
+
+      // Construct using xtech.selfomat.Api.ReadOnlySetting.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        value_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_ReadOnlySetting_descriptor;
+      }
+
+      public xtech.selfomat.Api.ReadOnlySetting getDefaultInstanceForType() {
+        return xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance();
+      }
+
+      public xtech.selfomat.Api.ReadOnlySetting build() {
+        xtech.selfomat.Api.ReadOnlySetting result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public xtech.selfomat.Api.ReadOnlySetting buildPartial() {
+        xtech.selfomat.Api.ReadOnlySetting result = new xtech.selfomat.Api.ReadOnlySetting(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.value_ = value_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof xtech.selfomat.Api.ReadOnlySetting) {
+          return mergeFrom((xtech.selfomat.Api.ReadOnlySetting)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(xtech.selfomat.Api.ReadOnlySetting other) {
+        if (other == xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasValue()) {
+          bitField0_ |= 0x00000002;
+          value_ = other.value_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasName()) {
+          return false;
+        }
+        if (!hasValue()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        xtech.selfomat.Api.ReadOnlySetting parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (xtech.selfomat.Api.ReadOnlySetting) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object value_ = "";
+      /**
+       * <code>required string value = 2;</code>
+       */
+      public boolean hasValue() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string value = 2;</code>
+       */
+      public java.lang.String getValue() {
+        java.lang.Object ref = value_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            value_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string value = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getValueBytes() {
+        java.lang.Object ref = value_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          value_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string value = 2;</code>
+       */
+      public Builder setValue(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string value = 2;</code>
+       */
+      public Builder clearValue() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        value_ = getDefaultInstance().getValue();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string value = 2;</code>
+       */
+      public Builder setValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:xtech.selfomat.ReadOnlySetting)
+    }
+
+    // @@protoc_insertion_point(class_scope:xtech.selfomat.ReadOnlySetting)
+    private static final xtech.selfomat.Api.ReadOnlySetting DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new xtech.selfomat.Api.ReadOnlySetting();
+    }
+
+    public static xtech.selfomat.Api.ReadOnlySetting getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ReadOnlySetting>
+        PARSER = new com.google.protobuf.AbstractParser<ReadOnlySetting>() {
+      public ReadOnlySetting parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ReadOnlySetting(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReadOnlySetting> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReadOnlySetting> getParserForType() {
+      return PARSER;
+    }
+
+    public xtech.selfomat.Api.ReadOnlySetting getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ListSettingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xtech.selfomat.ListSetting)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required int32 currentIndex = 2;</code>
+     */
+    boolean hasCurrentIndex();
+    /**
+     * <code>required int32 currentIndex = 2;</code>
+     */
+    int getCurrentIndex();
+
+    /**
+     * <code>repeated string values = 3;</code>
+     */
+    java.util.List<java.lang.String>
+        getValuesList();
+    /**
+     * <code>repeated string values = 3;</code>
+     */
+    int getValuesCount();
+    /**
+     * <code>repeated string values = 3;</code>
+     */
+    java.lang.String getValues(int index);
+    /**
+     * <code>repeated string values = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getValuesBytes(int index);
+
+    /**
+     * <code>required string update_url = 4;</code>
+     */
+    boolean hasUpdateUrl();
+    /**
+     * <code>required string update_url = 4;</code>
+     */
+    java.lang.String getUpdateUrl();
+    /**
+     * <code>required string update_url = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getUpdateUrlBytes();
+  }
+  /**
+   * Protobuf type {@code xtech.selfomat.ListSetting}
+   */
+  public  static final class ListSetting extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:xtech.selfomat.ListSetting)
+      ListSettingOrBuilder {
+    // Use ListSetting.newBuilder() to construct.
+    private ListSetting(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ListSetting() {
+      name_ = "";
+      currentIndex_ = 0;
+      values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      updateUrl_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ListSetting(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              name_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              currentIndex_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                values_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              values_.add(bs);
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              updateUrl_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          values_ = values_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_ListSetting_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_ListSetting_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              xtech.selfomat.Api.ListSetting.class, xtech.selfomat.Api.ListSetting.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CURRENTINDEX_FIELD_NUMBER = 2;
+    private int currentIndex_;
+    /**
+     * <code>required int32 currentIndex = 2;</code>
+     */
+    public boolean hasCurrentIndex() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 currentIndex = 2;</code>
+     */
+    public int getCurrentIndex() {
+      return currentIndex_;
+    }
+
+    public static final int VALUES_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList values_;
+    /**
+     * <code>repeated string values = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getValuesList() {
+      return values_;
+    }
+    /**
+     * <code>repeated string values = 3;</code>
+     */
+    public int getValuesCount() {
+      return values_.size();
+    }
+    /**
+     * <code>repeated string values = 3;</code>
+     */
+    public java.lang.String getValues(int index) {
+      return values_.get(index);
+    }
+    /**
+     * <code>repeated string values = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getValuesBytes(int index) {
+      return values_.getByteString(index);
+    }
+
+    public static final int UPDATE_URL_FIELD_NUMBER = 4;
+    private volatile java.lang.Object updateUrl_;
+    /**
+     * <code>required string update_url = 4;</code>
+     */
+    public boolean hasUpdateUrl() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string update_url = 4;</code>
+     */
+    public java.lang.String getUpdateUrl() {
+      java.lang.Object ref = updateUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          updateUrl_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string update_url = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUpdateUrlBytes() {
+      java.lang.Object ref = updateUrl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        updateUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCurrentIndex()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUpdateUrl()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, currentIndex_);
+      }
+      for (int i = 0; i < values_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, values_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, updateUrl_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, currentIndex_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < values_.size(); i++) {
+          dataSize += computeStringSizeNoTag(values_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getValuesList().size();
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, updateUrl_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof xtech.selfomat.Api.ListSetting)) {
+        return super.equals(obj);
+      }
+      xtech.selfomat.Api.ListSetting other = (xtech.selfomat.Api.ListSetting) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName()
+            .equals(other.getName());
+      }
+      result = result && (hasCurrentIndex() == other.hasCurrentIndex());
+      if (hasCurrentIndex()) {
+        result = result && (getCurrentIndex()
+            == other.getCurrentIndex());
+      }
+      result = result && getValuesList()
+          .equals(other.getValuesList());
+      result = result && (hasUpdateUrl() == other.hasUpdateUrl());
+      if (hasUpdateUrl()) {
+        result = result && getUpdateUrl()
+            .equals(other.getUpdateUrl());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasCurrentIndex()) {
+        hash = (37 * hash) + CURRENTINDEX_FIELD_NUMBER;
+        hash = (53 * hash) + getCurrentIndex();
+      }
+      if (getValuesCount() > 0) {
+        hash = (37 * hash) + VALUES_FIELD_NUMBER;
+        hash = (53 * hash) + getValuesList().hashCode();
+      }
+      if (hasUpdateUrl()) {
+        hash = (37 * hash) + UPDATE_URL_FIELD_NUMBER;
+        hash = (53 * hash) + getUpdateUrl().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static xtech.selfomat.Api.ListSetting parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.ListSetting parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.ListSetting parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.ListSetting parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.ListSetting parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.ListSetting parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.ListSetting parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.ListSetting parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.ListSetting parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.ListSetting parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(xtech.selfomat.Api.ListSetting prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code xtech.selfomat.ListSetting}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xtech.selfomat.ListSetting)
+        xtech.selfomat.Api.ListSettingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_ListSetting_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_ListSetting_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                xtech.selfomat.Api.ListSetting.class, xtech.selfomat.Api.ListSetting.Builder.class);
+      }
+
+      // Construct using xtech.selfomat.Api.ListSetting.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        currentIndex_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        updateUrl_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_ListSetting_descriptor;
+      }
+
+      public xtech.selfomat.Api.ListSetting getDefaultInstanceForType() {
+        return xtech.selfomat.Api.ListSetting.getDefaultInstance();
+      }
+
+      public xtech.selfomat.Api.ListSetting build() {
+        xtech.selfomat.Api.ListSetting result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public xtech.selfomat.Api.ListSetting buildPartial() {
+        xtech.selfomat.Api.ListSetting result = new xtech.selfomat.Api.ListSetting(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.currentIndex_ = currentIndex_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          values_ = values_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.values_ = values_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.updateUrl_ = updateUrl_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof xtech.selfomat.Api.ListSetting) {
+          return mergeFrom((xtech.selfomat.Api.ListSetting)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(xtech.selfomat.Api.ListSetting other) {
+        if (other == xtech.selfomat.Api.ListSetting.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasCurrentIndex()) {
+          setCurrentIndex(other.getCurrentIndex());
+        }
+        if (!other.values_.isEmpty()) {
+          if (values_.isEmpty()) {
+            values_ = other.values_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureValuesIsMutable();
+            values_.addAll(other.values_);
+          }
+          onChanged();
+        }
+        if (other.hasUpdateUrl()) {
+          bitField0_ |= 0x00000008;
+          updateUrl_ = other.updateUrl_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasName()) {
+          return false;
+        }
+        if (!hasCurrentIndex()) {
+          return false;
+        }
+        if (!hasUpdateUrl()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        xtech.selfomat.Api.ListSetting parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (xtech.selfomat.Api.ListSetting) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int currentIndex_ ;
+      /**
+       * <code>required int32 currentIndex = 2;</code>
+       */
+      public boolean hasCurrentIndex() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 currentIndex = 2;</code>
+       */
+      public int getCurrentIndex() {
+        return currentIndex_;
+      }
+      /**
+       * <code>required int32 currentIndex = 2;</code>
+       */
+      public Builder setCurrentIndex(int value) {
+        bitField0_ |= 0x00000002;
+        currentIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 currentIndex = 2;</code>
+       */
+      public Builder clearCurrentIndex() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        currentIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureValuesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          values_ = new com.google.protobuf.LazyStringArrayList(values_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string values = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getValuesList() {
+        return values_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string values = 3;</code>
+       */
+      public int getValuesCount() {
+        return values_.size();
+      }
+      /**
+       * <code>repeated string values = 3;</code>
+       */
+      public java.lang.String getValues(int index) {
+        return values_.get(index);
+      }
+      /**
+       * <code>repeated string values = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getValuesBytes(int index) {
+        return values_.getByteString(index);
+      }
+      /**
+       * <code>repeated string values = 3;</code>
+       */
+      public Builder setValues(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureValuesIsMutable();
+        values_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string values = 3;</code>
+       */
+      public Builder addValues(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureValuesIsMutable();
+        values_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string values = 3;</code>
+       */
+      public Builder addAllValues(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureValuesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, values_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string values = 3;</code>
+       */
+      public Builder clearValues() {
+        values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string values = 3;</code>
+       */
+      public Builder addValuesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureValuesIsMutable();
+        values_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object updateUrl_ = "";
+      /**
+       * <code>required string update_url = 4;</code>
+       */
+      public boolean hasUpdateUrl() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required string update_url = 4;</code>
+       */
+      public java.lang.String getUpdateUrl() {
+        java.lang.Object ref = updateUrl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            updateUrl_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string update_url = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUpdateUrlBytes() {
+        java.lang.Object ref = updateUrl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          updateUrl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string update_url = 4;</code>
+       */
+      public Builder setUpdateUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        updateUrl_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string update_url = 4;</code>
+       */
+      public Builder clearUpdateUrl() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        updateUrl_ = getDefaultInstance().getUpdateUrl();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string update_url = 4;</code>
+       */
+      public Builder setUpdateUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        updateUrl_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:xtech.selfomat.ListSetting)
+    }
+
+    // @@protoc_insertion_point(class_scope:xtech.selfomat.ListSetting)
+    private static final xtech.selfomat.Api.ListSetting DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new xtech.selfomat.Api.ListSetting();
+    }
+
+    public static xtech.selfomat.Api.ListSetting getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ListSetting>
+        PARSER = new com.google.protobuf.AbstractParser<ListSetting>() {
+      public ListSetting parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ListSetting(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ListSetting> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ListSetting> getParserForType() {
+      return PARSER;
+    }
+
+    public xtech.selfomat.Api.ListSetting getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface BoolSettingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xtech.selfomat.BoolSetting)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required bool currentValue = 2;</code>
+     */
+    boolean hasCurrentValue();
+    /**
+     * <code>required bool currentValue = 2;</code>
+     */
+    boolean getCurrentValue();
+
+    /**
+     * <code>required string update_url = 3;</code>
+     */
+    boolean hasUpdateUrl();
+    /**
+     * <code>required string update_url = 3;</code>
+     */
+    java.lang.String getUpdateUrl();
+    /**
+     * <code>required string update_url = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getUpdateUrlBytes();
+  }
+  /**
+   * Protobuf type {@code xtech.selfomat.BoolSetting}
+   */
+  public  static final class BoolSetting extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:xtech.selfomat.BoolSetting)
+      BoolSettingOrBuilder {
+    // Use BoolSetting.newBuilder() to construct.
+    private BoolSetting(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BoolSetting() {
+      name_ = "";
+      currentValue_ = false;
+      updateUrl_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BoolSetting(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              name_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              currentValue_ = input.readBool();
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              updateUrl_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_BoolSetting_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_BoolSetting_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              xtech.selfomat.Api.BoolSetting.class, xtech.selfomat.Api.BoolSetting.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CURRENTVALUE_FIELD_NUMBER = 2;
+    private boolean currentValue_;
+    /**
+     * <code>required bool currentValue = 2;</code>
+     */
+    public boolean hasCurrentValue() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required bool currentValue = 2;</code>
+     */
+    public boolean getCurrentValue() {
+      return currentValue_;
+    }
+
+    public static final int UPDATE_URL_FIELD_NUMBER = 3;
+    private volatile java.lang.Object updateUrl_;
+    /**
+     * <code>required string update_url = 3;</code>
+     */
+    public boolean hasUpdateUrl() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string update_url = 3;</code>
+     */
+    public java.lang.String getUpdateUrl() {
+      java.lang.Object ref = updateUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          updateUrl_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string update_url = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUpdateUrlBytes() {
+      java.lang.Object ref = updateUrl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        updateUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCurrentValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUpdateUrl()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(2, currentValue_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, updateUrl_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, currentValue_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, updateUrl_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof xtech.selfomat.Api.BoolSetting)) {
+        return super.equals(obj);
+      }
+      xtech.selfomat.Api.BoolSetting other = (xtech.selfomat.Api.BoolSetting) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName()
+            .equals(other.getName());
+      }
+      result = result && (hasCurrentValue() == other.hasCurrentValue());
+      if (hasCurrentValue()) {
+        result = result && (getCurrentValue()
+            == other.getCurrentValue());
+      }
+      result = result && (hasUpdateUrl() == other.hasUpdateUrl());
+      if (hasUpdateUrl()) {
+        result = result && getUpdateUrl()
+            .equals(other.getUpdateUrl());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasCurrentValue()) {
+        hash = (37 * hash) + CURRENTVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getCurrentValue());
+      }
+      if (hasUpdateUrl()) {
+        hash = (37 * hash) + UPDATE_URL_FIELD_NUMBER;
+        hash = (53 * hash) + getUpdateUrl().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static xtech.selfomat.Api.BoolSetting parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.BoolSetting parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.BoolSetting parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.BoolSetting parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.BoolSetting parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.BoolSetting parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.BoolSetting parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.BoolSetting parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.BoolSetting parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.BoolSetting parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(xtech.selfomat.Api.BoolSetting prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code xtech.selfomat.BoolSetting}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xtech.selfomat.BoolSetting)
+        xtech.selfomat.Api.BoolSettingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_BoolSetting_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_BoolSetting_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                xtech.selfomat.Api.BoolSetting.class, xtech.selfomat.Api.BoolSetting.Builder.class);
+      }
+
+      // Construct using xtech.selfomat.Api.BoolSetting.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        currentValue_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        updateUrl_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_BoolSetting_descriptor;
+      }
+
+      public xtech.selfomat.Api.BoolSetting getDefaultInstanceForType() {
+        return xtech.selfomat.Api.BoolSetting.getDefaultInstance();
+      }
+
+      public xtech.selfomat.Api.BoolSetting build() {
+        xtech.selfomat.Api.BoolSetting result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public xtech.selfomat.Api.BoolSetting buildPartial() {
+        xtech.selfomat.Api.BoolSetting result = new xtech.selfomat.Api.BoolSetting(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.currentValue_ = currentValue_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.updateUrl_ = updateUrl_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof xtech.selfomat.Api.BoolSetting) {
+          return mergeFrom((xtech.selfomat.Api.BoolSetting)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(xtech.selfomat.Api.BoolSetting other) {
+        if (other == xtech.selfomat.Api.BoolSetting.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasCurrentValue()) {
+          setCurrentValue(other.getCurrentValue());
+        }
+        if (other.hasUpdateUrl()) {
+          bitField0_ |= 0x00000004;
+          updateUrl_ = other.updateUrl_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasName()) {
+          return false;
+        }
+        if (!hasCurrentValue()) {
+          return false;
+        }
+        if (!hasUpdateUrl()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        xtech.selfomat.Api.BoolSetting parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (xtech.selfomat.Api.BoolSetting) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean currentValue_ ;
+      /**
+       * <code>required bool currentValue = 2;</code>
+       */
+      public boolean hasCurrentValue() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required bool currentValue = 2;</code>
+       */
+      public boolean getCurrentValue() {
+        return currentValue_;
+      }
+      /**
+       * <code>required bool currentValue = 2;</code>
+       */
+      public Builder setCurrentValue(boolean value) {
+        bitField0_ |= 0x00000002;
+        currentValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool currentValue = 2;</code>
+       */
+      public Builder clearCurrentValue() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        currentValue_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object updateUrl_ = "";
+      /**
+       * <code>required string update_url = 3;</code>
+       */
+      public boolean hasUpdateUrl() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string update_url = 3;</code>
+       */
+      public java.lang.String getUpdateUrl() {
+        java.lang.Object ref = updateUrl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            updateUrl_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string update_url = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUpdateUrlBytes() {
+        java.lang.Object ref = updateUrl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          updateUrl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string update_url = 3;</code>
+       */
+      public Builder setUpdateUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        updateUrl_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string update_url = 3;</code>
+       */
+      public Builder clearUpdateUrl() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        updateUrl_ = getDefaultInstance().getUpdateUrl();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string update_url = 3;</code>
+       */
+      public Builder setUpdateUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        updateUrl_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:xtech.selfomat.BoolSetting)
+    }
+
+    // @@protoc_insertion_point(class_scope:xtech.selfomat.BoolSetting)
+    private static final xtech.selfomat.Api.BoolSetting DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new xtech.selfomat.Api.BoolSetting();
+    }
+
+    public static xtech.selfomat.Api.BoolSetting getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BoolSetting>
+        PARSER = new com.google.protobuf.AbstractParser<BoolSetting>() {
+      public BoolSetting parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BoolSetting(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BoolSetting> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BoolSetting> getParserForType() {
+      return PARSER;
+    }
+
+    public xtech.selfomat.Api.BoolSetting getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FloatSettingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xtech.selfomat.FloatSetting)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required float currentValue = 2;</code>
+     */
+    boolean hasCurrentValue();
+    /**
+     * <code>required float currentValue = 2;</code>
+     */
+    float getCurrentValue();
+
+    /**
+     * <code>required float minValue = 3;</code>
+     */
+    boolean hasMinValue();
+    /**
+     * <code>required float minValue = 3;</code>
+     */
+    float getMinValue();
+
+    /**
+     * <code>required float maxValue = 4;</code>
+     */
+    boolean hasMaxValue();
+    /**
+     * <code>required float maxValue = 4;</code>
+     */
+    float getMaxValue();
+
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    boolean hasUpdateUrl();
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    java.lang.String getUpdateUrl();
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getUpdateUrlBytes();
+  }
+  /**
+   * Protobuf type {@code xtech.selfomat.FloatSetting}
+   */
+  public  static final class FloatSetting extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:xtech.selfomat.FloatSetting)
+      FloatSettingOrBuilder {
+    // Use FloatSetting.newBuilder() to construct.
+    private FloatSetting(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FloatSetting() {
+      name_ = "";
+      currentValue_ = 0F;
+      minValue_ = 0F;
+      maxValue_ = 0F;
+      updateUrl_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FloatSetting(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              name_ = bs;
+              break;
+            }
+            case 21: {
+              bitField0_ |= 0x00000002;
+              currentValue_ = input.readFloat();
+              break;
+            }
+            case 29: {
+              bitField0_ |= 0x00000004;
+              minValue_ = input.readFloat();
+              break;
+            }
+            case 37: {
+              bitField0_ |= 0x00000008;
+              maxValue_ = input.readFloat();
+              break;
+            }
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000010;
+              updateUrl_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_FloatSetting_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_FloatSetting_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              xtech.selfomat.Api.FloatSetting.class, xtech.selfomat.Api.FloatSetting.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CURRENTVALUE_FIELD_NUMBER = 2;
+    private float currentValue_;
+    /**
+     * <code>required float currentValue = 2;</code>
+     */
+    public boolean hasCurrentValue() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required float currentValue = 2;</code>
+     */
+    public float getCurrentValue() {
+      return currentValue_;
+    }
+
+    public static final int MINVALUE_FIELD_NUMBER = 3;
+    private float minValue_;
+    /**
+     * <code>required float minValue = 3;</code>
+     */
+    public boolean hasMinValue() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required float minValue = 3;</code>
+     */
+    public float getMinValue() {
+      return minValue_;
+    }
+
+    public static final int MAXVALUE_FIELD_NUMBER = 4;
+    private float maxValue_;
+    /**
+     * <code>required float maxValue = 4;</code>
+     */
+    public boolean hasMaxValue() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required float maxValue = 4;</code>
+     */
+    public float getMaxValue() {
+      return maxValue_;
+    }
+
+    public static final int UPDATE_URL_FIELD_NUMBER = 5;
+    private volatile java.lang.Object updateUrl_;
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    public boolean hasUpdateUrl() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    public java.lang.String getUpdateUrl() {
+      java.lang.Object ref = updateUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          updateUrl_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUpdateUrlBytes() {
+      java.lang.Object ref = updateUrl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        updateUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCurrentValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMinValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMaxValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUpdateUrl()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeFloat(2, currentValue_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeFloat(3, minValue_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeFloat(4, maxValue_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, updateUrl_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(2, currentValue_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(3, minValue_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(4, maxValue_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, updateUrl_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof xtech.selfomat.Api.FloatSetting)) {
+        return super.equals(obj);
+      }
+      xtech.selfomat.Api.FloatSetting other = (xtech.selfomat.Api.FloatSetting) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName()
+            .equals(other.getName());
+      }
+      result = result && (hasCurrentValue() == other.hasCurrentValue());
+      if (hasCurrentValue()) {
+        result = result && (
+            java.lang.Float.floatToIntBits(getCurrentValue())
+            == java.lang.Float.floatToIntBits(
+                other.getCurrentValue()));
+      }
+      result = result && (hasMinValue() == other.hasMinValue());
+      if (hasMinValue()) {
+        result = result && (
+            java.lang.Float.floatToIntBits(getMinValue())
+            == java.lang.Float.floatToIntBits(
+                other.getMinValue()));
+      }
+      result = result && (hasMaxValue() == other.hasMaxValue());
+      if (hasMaxValue()) {
+        result = result && (
+            java.lang.Float.floatToIntBits(getMaxValue())
+            == java.lang.Float.floatToIntBits(
+                other.getMaxValue()));
+      }
+      result = result && (hasUpdateUrl() == other.hasUpdateUrl());
+      if (hasUpdateUrl()) {
+        result = result && getUpdateUrl()
+            .equals(other.getUpdateUrl());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasCurrentValue()) {
+        hash = (37 * hash) + CURRENTVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getCurrentValue());
+      }
+      if (hasMinValue()) {
+        hash = (37 * hash) + MINVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getMinValue());
+      }
+      if (hasMaxValue()) {
+        hash = (37 * hash) + MAXVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getMaxValue());
+      }
+      if (hasUpdateUrl()) {
+        hash = (37 * hash) + UPDATE_URL_FIELD_NUMBER;
+        hash = (53 * hash) + getUpdateUrl().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static xtech.selfomat.Api.FloatSetting parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.FloatSetting parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.FloatSetting parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.FloatSetting parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.FloatSetting parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.FloatSetting parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.FloatSetting parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.FloatSetting parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.FloatSetting parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.FloatSetting parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(xtech.selfomat.Api.FloatSetting prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code xtech.selfomat.FloatSetting}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xtech.selfomat.FloatSetting)
+        xtech.selfomat.Api.FloatSettingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_FloatSetting_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_FloatSetting_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                xtech.selfomat.Api.FloatSetting.class, xtech.selfomat.Api.FloatSetting.Builder.class);
+      }
+
+      // Construct using xtech.selfomat.Api.FloatSetting.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        currentValue_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        minValue_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        maxValue_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        updateUrl_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_FloatSetting_descriptor;
+      }
+
+      public xtech.selfomat.Api.FloatSetting getDefaultInstanceForType() {
+        return xtech.selfomat.Api.FloatSetting.getDefaultInstance();
+      }
+
+      public xtech.selfomat.Api.FloatSetting build() {
+        xtech.selfomat.Api.FloatSetting result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public xtech.selfomat.Api.FloatSetting buildPartial() {
+        xtech.selfomat.Api.FloatSetting result = new xtech.selfomat.Api.FloatSetting(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.currentValue_ = currentValue_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.minValue_ = minValue_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.maxValue_ = maxValue_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.updateUrl_ = updateUrl_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof xtech.selfomat.Api.FloatSetting) {
+          return mergeFrom((xtech.selfomat.Api.FloatSetting)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(xtech.selfomat.Api.FloatSetting other) {
+        if (other == xtech.selfomat.Api.FloatSetting.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasCurrentValue()) {
+          setCurrentValue(other.getCurrentValue());
+        }
+        if (other.hasMinValue()) {
+          setMinValue(other.getMinValue());
+        }
+        if (other.hasMaxValue()) {
+          setMaxValue(other.getMaxValue());
+        }
+        if (other.hasUpdateUrl()) {
+          bitField0_ |= 0x00000010;
+          updateUrl_ = other.updateUrl_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasName()) {
+          return false;
+        }
+        if (!hasCurrentValue()) {
+          return false;
+        }
+        if (!hasMinValue()) {
+          return false;
+        }
+        if (!hasMaxValue()) {
+          return false;
+        }
+        if (!hasUpdateUrl()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        xtech.selfomat.Api.FloatSetting parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (xtech.selfomat.Api.FloatSetting) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private float currentValue_ ;
+      /**
+       * <code>required float currentValue = 2;</code>
+       */
+      public boolean hasCurrentValue() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required float currentValue = 2;</code>
+       */
+      public float getCurrentValue() {
+        return currentValue_;
+      }
+      /**
+       * <code>required float currentValue = 2;</code>
+       */
+      public Builder setCurrentValue(float value) {
+        bitField0_ |= 0x00000002;
+        currentValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float currentValue = 2;</code>
+       */
+      public Builder clearCurrentValue() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        currentValue_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float minValue_ ;
+      /**
+       * <code>required float minValue = 3;</code>
+       */
+      public boolean hasMinValue() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required float minValue = 3;</code>
+       */
+      public float getMinValue() {
+        return minValue_;
+      }
+      /**
+       * <code>required float minValue = 3;</code>
+       */
+      public Builder setMinValue(float value) {
+        bitField0_ |= 0x00000004;
+        minValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float minValue = 3;</code>
+       */
+      public Builder clearMinValue() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        minValue_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float maxValue_ ;
+      /**
+       * <code>required float maxValue = 4;</code>
+       */
+      public boolean hasMaxValue() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required float maxValue = 4;</code>
+       */
+      public float getMaxValue() {
+        return maxValue_;
+      }
+      /**
+       * <code>required float maxValue = 4;</code>
+       */
+      public Builder setMaxValue(float value) {
+        bitField0_ |= 0x00000008;
+        maxValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float maxValue = 4;</code>
+       */
+      public Builder clearMaxValue() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        maxValue_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object updateUrl_ = "";
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public boolean hasUpdateUrl() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public java.lang.String getUpdateUrl() {
+        java.lang.Object ref = updateUrl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            updateUrl_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUpdateUrlBytes() {
+        java.lang.Object ref = updateUrl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          updateUrl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public Builder setUpdateUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        updateUrl_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public Builder clearUpdateUrl() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        updateUrl_ = getDefaultInstance().getUpdateUrl();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public Builder setUpdateUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        updateUrl_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:xtech.selfomat.FloatSetting)
+    }
+
+    // @@protoc_insertion_point(class_scope:xtech.selfomat.FloatSetting)
+    private static final xtech.selfomat.Api.FloatSetting DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new xtech.selfomat.Api.FloatSetting();
+    }
+
+    public static xtech.selfomat.Api.FloatSetting getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<FloatSetting>
+        PARSER = new com.google.protobuf.AbstractParser<FloatSetting>() {
+      public FloatSetting parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new FloatSetting(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FloatSetting> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FloatSetting> getParserForType() {
+      return PARSER;
+    }
+
+    public xtech.selfomat.Api.FloatSetting getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface IntSettingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xtech.selfomat.IntSetting)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required int64 currentValue = 2;</code>
+     */
+    boolean hasCurrentValue();
+    /**
+     * <code>required int64 currentValue = 2;</code>
+     */
+    long getCurrentValue();
+
+    /**
+     * <code>required int64 minValue = 3;</code>
+     */
+    boolean hasMinValue();
+    /**
+     * <code>required int64 minValue = 3;</code>
+     */
+    long getMinValue();
+
+    /**
+     * <code>required int64 maxValue = 4;</code>
+     */
+    boolean hasMaxValue();
+    /**
+     * <code>required int64 maxValue = 4;</code>
+     */
+    long getMaxValue();
+
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    boolean hasUpdateUrl();
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    java.lang.String getUpdateUrl();
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getUpdateUrlBytes();
+  }
+  /**
+   * Protobuf type {@code xtech.selfomat.IntSetting}
+   */
+  public  static final class IntSetting extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:xtech.selfomat.IntSetting)
+      IntSettingOrBuilder {
+    // Use IntSetting.newBuilder() to construct.
+    private IntSetting(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private IntSetting() {
+      name_ = "";
+      currentValue_ = 0L;
+      minValue_ = 0L;
+      maxValue_ = 0L;
+      updateUrl_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private IntSetting(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              name_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              currentValue_ = input.readInt64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              minValue_ = input.readInt64();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              maxValue_ = input.readInt64();
+              break;
+            }
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000010;
+              updateUrl_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_IntSetting_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return xtech.selfomat.Api.internal_static_xtech_selfomat_IntSetting_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              xtech.selfomat.Api.IntSetting.class, xtech.selfomat.Api.IntSetting.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CURRENTVALUE_FIELD_NUMBER = 2;
+    private long currentValue_;
+    /**
+     * <code>required int64 currentValue = 2;</code>
+     */
+    public boolean hasCurrentValue() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 currentValue = 2;</code>
+     */
+    public long getCurrentValue() {
+      return currentValue_;
+    }
+
+    public static final int MINVALUE_FIELD_NUMBER = 3;
+    private long minValue_;
+    /**
+     * <code>required int64 minValue = 3;</code>
+     */
+    public boolean hasMinValue() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int64 minValue = 3;</code>
+     */
+    public long getMinValue() {
+      return minValue_;
+    }
+
+    public static final int MAXVALUE_FIELD_NUMBER = 4;
+    private long maxValue_;
+    /**
+     * <code>required int64 maxValue = 4;</code>
+     */
+    public boolean hasMaxValue() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required int64 maxValue = 4;</code>
+     */
+    public long getMaxValue() {
+      return maxValue_;
+    }
+
+    public static final int UPDATE_URL_FIELD_NUMBER = 5;
+    private volatile java.lang.Object updateUrl_;
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    public boolean hasUpdateUrl() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    public java.lang.String getUpdateUrl() {
+      java.lang.Object ref = updateUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          updateUrl_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string update_url = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUpdateUrlBytes() {
+      java.lang.Object ref = updateUrl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        updateUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCurrentValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMinValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMaxValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUpdateUrl()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, currentValue_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, minValue_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt64(4, maxValue_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, updateUrl_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, currentValue_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, minValue_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, maxValue_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, updateUrl_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof xtech.selfomat.Api.IntSetting)) {
+        return super.equals(obj);
+      }
+      xtech.selfomat.Api.IntSetting other = (xtech.selfomat.Api.IntSetting) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName()
+            .equals(other.getName());
+      }
+      result = result && (hasCurrentValue() == other.hasCurrentValue());
+      if (hasCurrentValue()) {
+        result = result && (getCurrentValue()
+            == other.getCurrentValue());
+      }
+      result = result && (hasMinValue() == other.hasMinValue());
+      if (hasMinValue()) {
+        result = result && (getMinValue()
+            == other.getMinValue());
+      }
+      result = result && (hasMaxValue() == other.hasMaxValue());
+      if (hasMaxValue()) {
+        result = result && (getMaxValue()
+            == other.getMaxValue());
+      }
+      result = result && (hasUpdateUrl() == other.hasUpdateUrl());
+      if (hasUpdateUrl()) {
+        result = result && getUpdateUrl()
+            .equals(other.getUpdateUrl());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasCurrentValue()) {
+        hash = (37 * hash) + CURRENTVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCurrentValue());
+      }
+      if (hasMinValue()) {
+        hash = (37 * hash) + MINVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getMinValue());
+      }
+      if (hasMaxValue()) {
+        hash = (37 * hash) + MAXVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getMaxValue());
+      }
+      if (hasUpdateUrl()) {
+        hash = (37 * hash) + UPDATE_URL_FIELD_NUMBER;
+        hash = (53 * hash) + getUpdateUrl().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static xtech.selfomat.Api.IntSetting parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.IntSetting parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.IntSetting parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static xtech.selfomat.Api.IntSetting parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.IntSetting parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.IntSetting parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.IntSetting parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.IntSetting parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static xtech.selfomat.Api.IntSetting parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static xtech.selfomat.Api.IntSetting parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(xtech.selfomat.Api.IntSetting prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code xtech.selfomat.IntSetting}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xtech.selfomat.IntSetting)
+        xtech.selfomat.Api.IntSettingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_IntSetting_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_IntSetting_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                xtech.selfomat.Api.IntSetting.class, xtech.selfomat.Api.IntSetting.Builder.class);
+      }
+
+      // Construct using xtech.selfomat.Api.IntSetting.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        currentValue_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        minValue_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        maxValue_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        updateUrl_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return xtech.selfomat.Api.internal_static_xtech_selfomat_IntSetting_descriptor;
+      }
+
+      public xtech.selfomat.Api.IntSetting getDefaultInstanceForType() {
+        return xtech.selfomat.Api.IntSetting.getDefaultInstance();
+      }
+
+      public xtech.selfomat.Api.IntSetting build() {
+        xtech.selfomat.Api.IntSetting result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public xtech.selfomat.Api.IntSetting buildPartial() {
+        xtech.selfomat.Api.IntSetting result = new xtech.selfomat.Api.IntSetting(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.currentValue_ = currentValue_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.minValue_ = minValue_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.maxValue_ = maxValue_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.updateUrl_ = updateUrl_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof xtech.selfomat.Api.IntSetting) {
+          return mergeFrom((xtech.selfomat.Api.IntSetting)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(xtech.selfomat.Api.IntSetting other) {
+        if (other == xtech.selfomat.Api.IntSetting.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasCurrentValue()) {
+          setCurrentValue(other.getCurrentValue());
+        }
+        if (other.hasMinValue()) {
+          setMinValue(other.getMinValue());
+        }
+        if (other.hasMaxValue()) {
+          setMaxValue(other.getMaxValue());
+        }
+        if (other.hasUpdateUrl()) {
+          bitField0_ |= 0x00000010;
+          updateUrl_ = other.updateUrl_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasName()) {
+          return false;
+        }
+        if (!hasCurrentValue()) {
+          return false;
+        }
+        if (!hasMinValue()) {
+          return false;
+        }
+        if (!hasMaxValue()) {
+          return false;
+        }
+        if (!hasUpdateUrl()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        xtech.selfomat.Api.IntSetting parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (xtech.selfomat.Api.IntSetting) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long currentValue_ ;
+      /**
+       * <code>required int64 currentValue = 2;</code>
+       */
+      public boolean hasCurrentValue() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 currentValue = 2;</code>
+       */
+      public long getCurrentValue() {
+        return currentValue_;
+      }
+      /**
+       * <code>required int64 currentValue = 2;</code>
+       */
+      public Builder setCurrentValue(long value) {
+        bitField0_ |= 0x00000002;
+        currentValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 currentValue = 2;</code>
+       */
+      public Builder clearCurrentValue() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        currentValue_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long minValue_ ;
+      /**
+       * <code>required int64 minValue = 3;</code>
+       */
+      public boolean hasMinValue() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int64 minValue = 3;</code>
+       */
+      public long getMinValue() {
+        return minValue_;
+      }
+      /**
+       * <code>required int64 minValue = 3;</code>
+       */
+      public Builder setMinValue(long value) {
+        bitField0_ |= 0x00000004;
+        minValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 minValue = 3;</code>
+       */
+      public Builder clearMinValue() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        minValue_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long maxValue_ ;
+      /**
+       * <code>required int64 maxValue = 4;</code>
+       */
+      public boolean hasMaxValue() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required int64 maxValue = 4;</code>
+       */
+      public long getMaxValue() {
+        return maxValue_;
+      }
+      /**
+       * <code>required int64 maxValue = 4;</code>
+       */
+      public Builder setMaxValue(long value) {
+        bitField0_ |= 0x00000008;
+        maxValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 maxValue = 4;</code>
+       */
+      public Builder clearMaxValue() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        maxValue_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object updateUrl_ = "";
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public boolean hasUpdateUrl() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public java.lang.String getUpdateUrl() {
+        java.lang.Object ref = updateUrl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            updateUrl_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUpdateUrlBytes() {
+        java.lang.Object ref = updateUrl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          updateUrl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public Builder setUpdateUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        updateUrl_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public Builder clearUpdateUrl() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        updateUrl_ = getDefaultInstance().getUpdateUrl();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string update_url = 5;</code>
+       */
+      public Builder setUpdateUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        updateUrl_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:xtech.selfomat.IntSetting)
+    }
+
+    // @@protoc_insertion_point(class_scope:xtech.selfomat.IntSetting)
+    private static final xtech.selfomat.Api.IntSetting DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new xtech.selfomat.Api.IntSetting();
+    }
+
+    public static xtech.selfomat.Api.IntSetting getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<IntSetting>
+        PARSER = new com.google.protobuf.AbstractParser<IntSetting>() {
+      public IntSetting parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new IntSetting(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<IntSetting> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<IntSetting> getParserForType() {
+      return PARSER;
+    }
+
+    public xtech.selfomat.Api.IntSetting getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -642,77 +6593,95 @@ public final class Api {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 iso = 1;</code>
+     * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
      */
     boolean hasIso();
     /**
-     * <code>required int32 iso = 1;</code>
+     * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
      */
-    int getIso();
+    xtech.selfomat.Api.ListSetting getIso();
+    /**
+     * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
+     */
+    xtech.selfomat.Api.ListSettingOrBuilder getIsoOrBuilder();
 
     /**
-     * <code>required int32 shutter_speed = 2;</code>
+     * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
      */
     boolean hasShutterSpeed();
     /**
-     * <code>required int32 shutter_speed = 2;</code>
+     * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
      */
-    int getShutterSpeed();
+    xtech.selfomat.Api.ListSetting getShutterSpeed();
+    /**
+     * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
+     */
+    xtech.selfomat.Api.ListSettingOrBuilder getShutterSpeedOrBuilder();
 
     /**
-     * <code>required int32 aperture = 3;</code>
+     * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
      */
     boolean hasAperture();
     /**
-     * <code>required int32 aperture = 3;</code>
+     * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
      */
-    int getAperture();
+    xtech.selfomat.Api.ListSetting getAperture();
+    /**
+     * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
+     */
+    xtech.selfomat.Api.ListSettingOrBuilder getApertureOrBuilder();
 
     /**
-     * <code>required int32 exposure_compensation = 4;</code>
+     * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
      */
     boolean hasExposureCompensation();
     /**
-     * <code>required int32 exposure_compensation = 4;</code>
+     * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
      */
-    int getExposureCompensation();
+    xtech.selfomat.Api.ListSetting getExposureCompensation();
+    /**
+     * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
+     */
+    xtech.selfomat.Api.ListSettingOrBuilder getExposureCompensationOrBuilder();
 
     /**
-     * <code>required int32 image_format = 5;</code>
+     * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
      */
     boolean hasImageFormat();
     /**
-     * <code>required int32 image_format = 5;</code>
+     * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
      */
-    int getImageFormat();
+    xtech.selfomat.Api.ListSetting getImageFormat();
+    /**
+     * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
+     */
+    xtech.selfomat.Api.ListSettingOrBuilder getImageFormatOrBuilder();
 
     /**
-     * <code>required string camera_name = 7;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
      */
     boolean hasCameraName();
     /**
-     * <code>required string camera_name = 7;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
      */
-    java.lang.String getCameraName();
+    xtech.selfomat.Api.ReadOnlySetting getCameraName();
     /**
-     * <code>required string camera_name = 7;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
      */
-    com.google.protobuf.ByteString
-        getCameraNameBytes();
+    xtech.selfomat.Api.ReadOnlySettingOrBuilder getCameraNameOrBuilder();
 
     /**
-     * <code>required string lens_name = 8;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
      */
     boolean hasLensName();
     /**
-     * <code>required string lens_name = 8;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
      */
-    java.lang.String getLensName();
+    xtech.selfomat.Api.ReadOnlySetting getLensName();
     /**
-     * <code>required string lens_name = 8;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
      */
-    com.google.protobuf.ByteString
-        getLensNameBytes();
+    xtech.selfomat.Api.ReadOnlySettingOrBuilder getLensNameOrBuilder();
   }
   /**
    * Protobuf type {@code xtech.selfomat.CameraSettings}
@@ -721,14 +6690,11 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:xtech.selfomat.CameraSettings)
       CameraSettingsOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use CameraSettings.newBuilder() to construct.
     private CameraSettings(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
     private CameraSettings() {
-      cameraName_ = "";
-      lensName_ = "";
     }
 
     @java.lang.Override
@@ -741,9 +6707,6 @@ public final class Api {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -755,48 +6718,102 @@ public final class Api {
             case 0:
               done = true;
               break;
-            case 8: {
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              xtech.selfomat.Api.ListSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = iso_.toBuilder();
+              }
+              iso_ = input.readMessage(xtech.selfomat.Api.ListSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(iso_);
+                iso_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000001;
-              iso_ = input.readInt32();
               break;
             }
-            case 16: {
+            case 18: {
+              xtech.selfomat.Api.ListSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = shutterSpeed_.toBuilder();
+              }
+              shutterSpeed_ = input.readMessage(xtech.selfomat.Api.ListSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(shutterSpeed_);
+                shutterSpeed_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000002;
-              shutterSpeed_ = input.readInt32();
               break;
             }
-            case 24: {
+            case 26: {
+              xtech.selfomat.Api.ListSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = aperture_.toBuilder();
+              }
+              aperture_ = input.readMessage(xtech.selfomat.Api.ListSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(aperture_);
+                aperture_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000004;
-              aperture_ = input.readInt32();
               break;
             }
-            case 32: {
+            case 34: {
+              xtech.selfomat.Api.ListSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = exposureCompensation_.toBuilder();
+              }
+              exposureCompensation_ = input.readMessage(xtech.selfomat.Api.ListSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(exposureCompensation_);
+                exposureCompensation_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000008;
-              exposureCompensation_ = input.readInt32();
               break;
             }
-            case 40: {
+            case 42: {
+              xtech.selfomat.Api.ListSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = imageFormat_.toBuilder();
+              }
+              imageFormat_ = input.readMessage(xtech.selfomat.Api.ListSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(imageFormat_);
+                imageFormat_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000010;
-              imageFormat_ = input.readInt32();
               break;
             }
             case 58: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+              xtech.selfomat.Api.ReadOnlySetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                subBuilder = cameraName_.toBuilder();
+              }
+              cameraName_ = input.readMessage(xtech.selfomat.Api.ReadOnlySetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(cameraName_);
+                cameraName_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000020;
-              cameraName_ = bs;
               break;
             }
             case 66: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000040;
-              lensName_ = bs;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
+              xtech.selfomat.Api.ReadOnlySetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                subBuilder = lensName_.toBuilder();
               }
+              lensName_ = input.readMessage(xtech.selfomat.Api.ReadOnlySetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(lensName_);
+                lensName_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
               break;
             }
           }
@@ -816,7 +6833,6 @@ public final class Api {
       return xtech.selfomat.Api.internal_static_xtech_selfomat_CameraSettings_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return xtech.selfomat.Api.internal_static_xtech_selfomat_CameraSettings_fieldAccessorTable
@@ -826,166 +6842,153 @@ public final class Api {
 
     private int bitField0_;
     public static final int ISO_FIELD_NUMBER = 1;
-    private int iso_;
+    private xtech.selfomat.Api.ListSetting iso_;
     /**
-     * <code>required int32 iso = 1;</code>
+     * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
      */
     public boolean hasIso() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 iso = 1;</code>
+     * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
      */
-    public int getIso() {
-      return iso_;
+    public xtech.selfomat.Api.ListSetting getIso() {
+      return iso_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : iso_;
+    }
+    /**
+     * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
+     */
+    public xtech.selfomat.Api.ListSettingOrBuilder getIsoOrBuilder() {
+      return iso_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : iso_;
     }
 
     public static final int SHUTTER_SPEED_FIELD_NUMBER = 2;
-    private int shutterSpeed_;
+    private xtech.selfomat.Api.ListSetting shutterSpeed_;
     /**
-     * <code>required int32 shutter_speed = 2;</code>
+     * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
      */
     public boolean hasShutterSpeed() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required int32 shutter_speed = 2;</code>
+     * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
      */
-    public int getShutterSpeed() {
-      return shutterSpeed_;
+    public xtech.selfomat.Api.ListSetting getShutterSpeed() {
+      return shutterSpeed_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : shutterSpeed_;
+    }
+    /**
+     * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
+     */
+    public xtech.selfomat.Api.ListSettingOrBuilder getShutterSpeedOrBuilder() {
+      return shutterSpeed_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : shutterSpeed_;
     }
 
     public static final int APERTURE_FIELD_NUMBER = 3;
-    private int aperture_;
+    private xtech.selfomat.Api.ListSetting aperture_;
     /**
-     * <code>required int32 aperture = 3;</code>
+     * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
      */
     public boolean hasAperture() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required int32 aperture = 3;</code>
+     * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
      */
-    public int getAperture() {
-      return aperture_;
+    public xtech.selfomat.Api.ListSetting getAperture() {
+      return aperture_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : aperture_;
+    }
+    /**
+     * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
+     */
+    public xtech.selfomat.Api.ListSettingOrBuilder getApertureOrBuilder() {
+      return aperture_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : aperture_;
     }
 
     public static final int EXPOSURE_COMPENSATION_FIELD_NUMBER = 4;
-    private int exposureCompensation_;
+    private xtech.selfomat.Api.ListSetting exposureCompensation_;
     /**
-     * <code>required int32 exposure_compensation = 4;</code>
+     * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
      */
     public boolean hasExposureCompensation() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required int32 exposure_compensation = 4;</code>
+     * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
      */
-    public int getExposureCompensation() {
-      return exposureCompensation_;
+    public xtech.selfomat.Api.ListSetting getExposureCompensation() {
+      return exposureCompensation_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : exposureCompensation_;
+    }
+    /**
+     * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
+     */
+    public xtech.selfomat.Api.ListSettingOrBuilder getExposureCompensationOrBuilder() {
+      return exposureCompensation_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : exposureCompensation_;
     }
 
     public static final int IMAGE_FORMAT_FIELD_NUMBER = 5;
-    private int imageFormat_;
+    private xtech.selfomat.Api.ListSetting imageFormat_;
     /**
-     * <code>required int32 image_format = 5;</code>
+     * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
      */
     public boolean hasImageFormat() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>required int32 image_format = 5;</code>
+     * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
      */
-    public int getImageFormat() {
-      return imageFormat_;
+    public xtech.selfomat.Api.ListSetting getImageFormat() {
+      return imageFormat_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : imageFormat_;
+    }
+    /**
+     * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
+     */
+    public xtech.selfomat.Api.ListSettingOrBuilder getImageFormatOrBuilder() {
+      return imageFormat_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : imageFormat_;
     }
 
     public static final int CAMERA_NAME_FIELD_NUMBER = 7;
-    private volatile java.lang.Object cameraName_;
+    private xtech.selfomat.Api.ReadOnlySetting cameraName_;
     /**
-     * <code>required string camera_name = 7;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
      */
     public boolean hasCameraName() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>required string camera_name = 7;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
      */
-    public java.lang.String getCameraName() {
-      java.lang.Object ref = cameraName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          cameraName_ = s;
-        }
-        return s;
-      }
+    public xtech.selfomat.Api.ReadOnlySetting getCameraName() {
+      return cameraName_ == null ? xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance() : cameraName_;
     }
     /**
-     * <code>required string camera_name = 7;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
      */
-    public com.google.protobuf.ByteString
-        getCameraNameBytes() {
-      java.lang.Object ref = cameraName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        cameraName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public xtech.selfomat.Api.ReadOnlySettingOrBuilder getCameraNameOrBuilder() {
+      return cameraName_ == null ? xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance() : cameraName_;
     }
 
     public static final int LENS_NAME_FIELD_NUMBER = 8;
-    private volatile java.lang.Object lensName_;
+    private xtech.selfomat.Api.ReadOnlySetting lensName_;
     /**
-     * <code>required string lens_name = 8;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
      */
     public boolean hasLensName() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>required string lens_name = 8;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
      */
-    public java.lang.String getLensName() {
-      java.lang.Object ref = lensName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          lensName_ = s;
-        }
-        return s;
-      }
+    public xtech.selfomat.Api.ReadOnlySetting getLensName() {
+      return lensName_ == null ? xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance() : lensName_;
     }
     /**
-     * <code>required string lens_name = 8;</code>
+     * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
      */
-    public com.google.protobuf.ByteString
-        getLensNameBytes() {
-      java.lang.Object ref = lensName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        lensName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public xtech.selfomat.Api.ReadOnlySettingOrBuilder getLensNameOrBuilder() {
+      return lensName_ == null ? xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance() : lensName_;
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1019,74 +7022,103 @@ public final class Api {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!getIso().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getShutterSpeed().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getAperture().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getExposureCompensation().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getImageFormat().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getCameraName().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getLensName().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt32(1, iso_);
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getIso());
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt32(2, shutterSpeed_);
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getShutterSpeed());
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeInt32(3, aperture_);
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, getAperture());
       }
-      if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeInt32(4, exposureCompensation_);
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, getExposureCompensation());
       }
-      if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeInt32(5, imageFormat_);
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, getImageFormat());
       }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, cameraName_);
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeMessage(7, getCameraName());
       }
-      if (((bitField0_ & 0x00000040) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, lensName_);
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeMessage(8, getLensName());
       }
       unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, iso_);
+          .computeMessageSize(1, getIso());
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, shutterSpeed_);
+          .computeMessageSize(2, getShutterSpeed());
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, aperture_);
+          .computeMessageSize(3, getAperture());
       }
-      if (((bitField0_ & 0x00000008) != 0)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, exposureCompensation_);
+          .computeMessageSize(4, getExposureCompensation());
       }
-      if (((bitField0_ & 0x00000010) != 0)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, imageFormat_);
+          .computeMessageSize(5, getImageFormat());
       }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, cameraName_);
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getCameraName());
       }
-      if (((bitField0_ & 0x00000040) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, lensName_);
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getLensName());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1097,43 +7129,44 @@ public final class Api {
       }
       xtech.selfomat.Api.CameraSettings other = (xtech.selfomat.Api.CameraSettings) obj;
 
-      if (hasIso() != other.hasIso()) return false;
+      boolean result = true;
+      result = result && (hasIso() == other.hasIso());
       if (hasIso()) {
-        if (getIso()
-            != other.getIso()) return false;
+        result = result && getIso()
+            .equals(other.getIso());
       }
-      if (hasShutterSpeed() != other.hasShutterSpeed()) return false;
+      result = result && (hasShutterSpeed() == other.hasShutterSpeed());
       if (hasShutterSpeed()) {
-        if (getShutterSpeed()
-            != other.getShutterSpeed()) return false;
+        result = result && getShutterSpeed()
+            .equals(other.getShutterSpeed());
       }
-      if (hasAperture() != other.hasAperture()) return false;
+      result = result && (hasAperture() == other.hasAperture());
       if (hasAperture()) {
-        if (getAperture()
-            != other.getAperture()) return false;
+        result = result && getAperture()
+            .equals(other.getAperture());
       }
-      if (hasExposureCompensation() != other.hasExposureCompensation()) return false;
+      result = result && (hasExposureCompensation() == other.hasExposureCompensation());
       if (hasExposureCompensation()) {
-        if (getExposureCompensation()
-            != other.getExposureCompensation()) return false;
+        result = result && getExposureCompensation()
+            .equals(other.getExposureCompensation());
       }
-      if (hasImageFormat() != other.hasImageFormat()) return false;
+      result = result && (hasImageFormat() == other.hasImageFormat());
       if (hasImageFormat()) {
-        if (getImageFormat()
-            != other.getImageFormat()) return false;
+        result = result && getImageFormat()
+            .equals(other.getImageFormat());
       }
-      if (hasCameraName() != other.hasCameraName()) return false;
+      result = result && (hasCameraName() == other.hasCameraName());
       if (hasCameraName()) {
-        if (!getCameraName()
-            .equals(other.getCameraName())) return false;
+        result = result && getCameraName()
+            .equals(other.getCameraName());
       }
-      if (hasLensName() != other.hasLensName()) return false;
+      result = result && (hasLensName() == other.hasLensName());
       if (hasLensName()) {
-        if (!getLensName()
-            .equals(other.getLensName())) return false;
+        result = result && getLensName()
+            .equals(other.getLensName());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -1142,26 +7175,26 @@ public final class Api {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasIso()) {
         hash = (37 * hash) + ISO_FIELD_NUMBER;
-        hash = (53 * hash) + getIso();
+        hash = (53 * hash) + getIso().hashCode();
       }
       if (hasShutterSpeed()) {
         hash = (37 * hash) + SHUTTER_SPEED_FIELD_NUMBER;
-        hash = (53 * hash) + getShutterSpeed();
+        hash = (53 * hash) + getShutterSpeed().hashCode();
       }
       if (hasAperture()) {
         hash = (37 * hash) + APERTURE_FIELD_NUMBER;
-        hash = (53 * hash) + getAperture();
+        hash = (53 * hash) + getAperture().hashCode();
       }
       if (hasExposureCompensation()) {
         hash = (37 * hash) + EXPOSURE_COMPENSATION_FIELD_NUMBER;
-        hash = (53 * hash) + getExposureCompensation();
+        hash = (53 * hash) + getExposureCompensation().hashCode();
       }
       if (hasImageFormat()) {
         hash = (37 * hash) + IMAGE_FORMAT_FIELD_NUMBER;
-        hash = (53 * hash) + getImageFormat();
+        hash = (53 * hash) + getImageFormat().hashCode();
       }
       if (hasCameraName()) {
         hash = (37 * hash) + CAMERA_NAME_FIELD_NUMBER;
@@ -1176,17 +7209,6 @@ public final class Api {
       return hash;
     }
 
-    public static xtech.selfomat.Api.CameraSettings parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static xtech.selfomat.Api.CameraSettings parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static xtech.selfomat.Api.CameraSettings parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1246,7 +7268,6 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1254,7 +7275,6 @@ public final class Api {
     public static Builder newBuilder(xtech.selfomat.Api.CameraSettings prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1278,7 +7298,6 @@ public final class Api {
         return xtech.selfomat.Api.internal_static_xtech_selfomat_CameraSettings_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return xtech.selfomat.Api.internal_static_xtech_selfomat_CameraSettings_fieldAccessorTable
@@ -1299,40 +7318,71 @@ public final class Api {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getIsoFieldBuilder();
+          getShutterSpeedFieldBuilder();
+          getApertureFieldBuilder();
+          getExposureCompensationFieldBuilder();
+          getImageFormatFieldBuilder();
+          getCameraNameFieldBuilder();
+          getLensNameFieldBuilder();
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
-        iso_ = 0;
+        if (isoBuilder_ == null) {
+          iso_ = null;
+        } else {
+          isoBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000001);
-        shutterSpeed_ = 0;
+        if (shutterSpeedBuilder_ == null) {
+          shutterSpeed_ = null;
+        } else {
+          shutterSpeedBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000002);
-        aperture_ = 0;
+        if (apertureBuilder_ == null) {
+          aperture_ = null;
+        } else {
+          apertureBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000004);
-        exposureCompensation_ = 0;
+        if (exposureCompensationBuilder_ == null) {
+          exposureCompensation_ = null;
+        } else {
+          exposureCompensationBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000008);
-        imageFormat_ = 0;
+        if (imageFormatBuilder_ == null) {
+          imageFormat_ = null;
+        } else {
+          imageFormatBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000010);
-        cameraName_ = "";
+        if (cameraNameBuilder_ == null) {
+          cameraName_ = null;
+        } else {
+          cameraNameBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000020);
-        lensName_ = "";
+        if (lensNameBuilder_ == null) {
+          lensName_ = null;
+        } else {
+          lensNameBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return xtech.selfomat.Api.internal_static_xtech_selfomat_CameraSettings_descriptor;
       }
 
-      @java.lang.Override
       public xtech.selfomat.Api.CameraSettings getDefaultInstanceForType() {
         return xtech.selfomat.Api.CameraSettings.getDefaultInstance();
       }
 
-      @java.lang.Override
       public xtech.selfomat.Api.CameraSettings build() {
         xtech.selfomat.Api.CameraSettings result = buildPartial();
         if (!result.isInitialized()) {
@@ -1341,77 +7391,97 @@ public final class Api {
         return result;
       }
 
-      @java.lang.Override
       public xtech.selfomat.Api.CameraSettings buildPartial() {
         xtech.selfomat.Api.CameraSettings result = new xtech.selfomat.Api.CameraSettings(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.iso_ = iso_;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.shutterSpeed_ = shutterSpeed_;
+        if (isoBuilder_ == null) {
+          result.iso_ = iso_;
+        } else {
+          result.iso_ = isoBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.aperture_ = aperture_;
+        if (shutterSpeedBuilder_ == null) {
+          result.shutterSpeed_ = shutterSpeed_;
+        } else {
+          result.shutterSpeed_ = shutterSpeedBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.exposureCompensation_ = exposureCompensation_;
+        if (apertureBuilder_ == null) {
+          result.aperture_ = aperture_;
+        } else {
+          result.aperture_ = apertureBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.imageFormat_ = imageFormat_;
+        if (exposureCompensationBuilder_ == null) {
+          result.exposureCompensation_ = exposureCompensation_;
+        } else {
+          result.exposureCompensation_ = exposureCompensationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
+        if (imageFormatBuilder_ == null) {
+          result.imageFormat_ = imageFormat_;
+        } else {
+          result.imageFormat_ = imageFormatBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.cameraName_ = cameraName_;
-        if (((from_bitField0_ & 0x00000040) != 0)) {
+        if (cameraNameBuilder_ == null) {
+          result.cameraName_ = cameraName_;
+        } else {
+          result.cameraName_ = cameraNameBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.lensName_ = lensName_;
+        if (lensNameBuilder_ == null) {
+          result.lensName_ = lensName_;
+        } else {
+          result.lensName_ = lensNameBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
+          Object value) {
+        return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof xtech.selfomat.Api.CameraSettings) {
           return mergeFrom((xtech.selfomat.Api.CameraSettings)other);
@@ -1424,36 +7494,31 @@ public final class Api {
       public Builder mergeFrom(xtech.selfomat.Api.CameraSettings other) {
         if (other == xtech.selfomat.Api.CameraSettings.getDefaultInstance()) return this;
         if (other.hasIso()) {
-          setIso(other.getIso());
+          mergeIso(other.getIso());
         }
         if (other.hasShutterSpeed()) {
-          setShutterSpeed(other.getShutterSpeed());
+          mergeShutterSpeed(other.getShutterSpeed());
         }
         if (other.hasAperture()) {
-          setAperture(other.getAperture());
+          mergeAperture(other.getAperture());
         }
         if (other.hasExposureCompensation()) {
-          setExposureCompensation(other.getExposureCompensation());
+          mergeExposureCompensation(other.getExposureCompensation());
         }
         if (other.hasImageFormat()) {
-          setImageFormat(other.getImageFormat());
+          mergeImageFormat(other.getImageFormat());
         }
         if (other.hasCameraName()) {
-          bitField0_ |= 0x00000020;
-          cameraName_ = other.cameraName_;
-          onChanged();
+          mergeCameraName(other.getCameraName());
         }
         if (other.hasLensName()) {
-          bitField0_ |= 0x00000040;
-          lensName_ = other.lensName_;
-          onChanged();
+          mergeLensName(other.getLensName());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasIso()) {
           return false;
@@ -1476,10 +7541,30 @@ public final class Api {
         if (!hasLensName()) {
           return false;
         }
+        if (!getIso().isInitialized()) {
+          return false;
+        }
+        if (!getShutterSpeed().isInitialized()) {
+          return false;
+        }
+        if (!getAperture().isInitialized()) {
+          return false;
+        }
+        if (!getExposureCompensation().isInitialized()) {
+          return false;
+        }
+        if (!getImageFormat().isInitialized()) {
+          return false;
+        }
+        if (!getCameraName().isInitialized()) {
+          return false;
+        }
+        if (!getLensName().isInitialized()) {
+          return false;
+        }
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1499,324 +7584,836 @@ public final class Api {
       }
       private int bitField0_;
 
-      private int iso_ ;
+      private xtech.selfomat.Api.ListSetting iso_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder> isoBuilder_;
       /**
-       * <code>required int32 iso = 1;</code>
+       * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
        */
       public boolean hasIso() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int32 iso = 1;</code>
+       * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
        */
-      public int getIso() {
-        return iso_;
+      public xtech.selfomat.Api.ListSetting getIso() {
+        if (isoBuilder_ == null) {
+          return iso_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : iso_;
+        } else {
+          return isoBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required int32 iso = 1;</code>
+       * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
        */
-      public Builder setIso(int value) {
+      public Builder setIso(xtech.selfomat.Api.ListSetting value) {
+        if (isoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          iso_ = value;
+          onChanged();
+        } else {
+          isoBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000001;
-        iso_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required int32 iso = 1;</code>
+       * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
+       */
+      public Builder setIso(
+          xtech.selfomat.Api.ListSetting.Builder builderForValue) {
+        if (isoBuilder_ == null) {
+          iso_ = builderForValue.build();
+          onChanged();
+        } else {
+          isoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
+       */
+      public Builder mergeIso(xtech.selfomat.Api.ListSetting value) {
+        if (isoBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              iso_ != null &&
+              iso_ != xtech.selfomat.Api.ListSetting.getDefaultInstance()) {
+            iso_ =
+              xtech.selfomat.Api.ListSetting.newBuilder(iso_).mergeFrom(value).buildPartial();
+          } else {
+            iso_ = value;
+          }
+          onChanged();
+        } else {
+          isoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
        */
       public Builder clearIso() {
+        if (isoBuilder_ == null) {
+          iso_ = null;
+          onChanged();
+        } else {
+          isoBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000001);
-        iso_ = 0;
-        onChanged();
         return this;
       }
-
-      private int shutterSpeed_ ;
       /**
-       * <code>required int32 shutter_speed = 2;</code>
+       * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
+       */
+      public xtech.selfomat.Api.ListSetting.Builder getIsoBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getIsoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
+       */
+      public xtech.selfomat.Api.ListSettingOrBuilder getIsoOrBuilder() {
+        if (isoBuilder_ != null) {
+          return isoBuilder_.getMessageOrBuilder();
+        } else {
+          return iso_ == null ?
+              xtech.selfomat.Api.ListSetting.getDefaultInstance() : iso_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting iso = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder> 
+          getIsoFieldBuilder() {
+        if (isoBuilder_ == null) {
+          isoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder>(
+                  getIso(),
+                  getParentForChildren(),
+                  isClean());
+          iso_ = null;
+        }
+        return isoBuilder_;
+      }
+
+      private xtech.selfomat.Api.ListSetting shutterSpeed_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder> shutterSpeedBuilder_;
+      /**
+       * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
        */
       public boolean hasShutterSpeed() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required int32 shutter_speed = 2;</code>
+       * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
        */
-      public int getShutterSpeed() {
-        return shutterSpeed_;
+      public xtech.selfomat.Api.ListSetting getShutterSpeed() {
+        if (shutterSpeedBuilder_ == null) {
+          return shutterSpeed_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : shutterSpeed_;
+        } else {
+          return shutterSpeedBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required int32 shutter_speed = 2;</code>
+       * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
        */
-      public Builder setShutterSpeed(int value) {
+      public Builder setShutterSpeed(xtech.selfomat.Api.ListSetting value) {
+        if (shutterSpeedBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          shutterSpeed_ = value;
+          onChanged();
+        } else {
+          shutterSpeedBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000002;
-        shutterSpeed_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required int32 shutter_speed = 2;</code>
+       * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
+       */
+      public Builder setShutterSpeed(
+          xtech.selfomat.Api.ListSetting.Builder builderForValue) {
+        if (shutterSpeedBuilder_ == null) {
+          shutterSpeed_ = builderForValue.build();
+          onChanged();
+        } else {
+          shutterSpeedBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
+       */
+      public Builder mergeShutterSpeed(xtech.selfomat.Api.ListSetting value) {
+        if (shutterSpeedBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              shutterSpeed_ != null &&
+              shutterSpeed_ != xtech.selfomat.Api.ListSetting.getDefaultInstance()) {
+            shutterSpeed_ =
+              xtech.selfomat.Api.ListSetting.newBuilder(shutterSpeed_).mergeFrom(value).buildPartial();
+          } else {
+            shutterSpeed_ = value;
+          }
+          onChanged();
+        } else {
+          shutterSpeedBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
        */
       public Builder clearShutterSpeed() {
+        if (shutterSpeedBuilder_ == null) {
+          shutterSpeed_ = null;
+          onChanged();
+        } else {
+          shutterSpeedBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000002);
-        shutterSpeed_ = 0;
-        onChanged();
         return this;
       }
-
-      private int aperture_ ;
       /**
-       * <code>required int32 aperture = 3;</code>
+       * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
+       */
+      public xtech.selfomat.Api.ListSetting.Builder getShutterSpeedBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getShutterSpeedFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
+       */
+      public xtech.selfomat.Api.ListSettingOrBuilder getShutterSpeedOrBuilder() {
+        if (shutterSpeedBuilder_ != null) {
+          return shutterSpeedBuilder_.getMessageOrBuilder();
+        } else {
+          return shutterSpeed_ == null ?
+              xtech.selfomat.Api.ListSetting.getDefaultInstance() : shutterSpeed_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting shutter_speed = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder> 
+          getShutterSpeedFieldBuilder() {
+        if (shutterSpeedBuilder_ == null) {
+          shutterSpeedBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder>(
+                  getShutterSpeed(),
+                  getParentForChildren(),
+                  isClean());
+          shutterSpeed_ = null;
+        }
+        return shutterSpeedBuilder_;
+      }
+
+      private xtech.selfomat.Api.ListSetting aperture_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder> apertureBuilder_;
+      /**
+       * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
        */
       public boolean hasAperture() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required int32 aperture = 3;</code>
+       * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
        */
-      public int getAperture() {
-        return aperture_;
+      public xtech.selfomat.Api.ListSetting getAperture() {
+        if (apertureBuilder_ == null) {
+          return aperture_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : aperture_;
+        } else {
+          return apertureBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required int32 aperture = 3;</code>
+       * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
        */
-      public Builder setAperture(int value) {
+      public Builder setAperture(xtech.selfomat.Api.ListSetting value) {
+        if (apertureBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          aperture_ = value;
+          onChanged();
+        } else {
+          apertureBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000004;
-        aperture_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required int32 aperture = 3;</code>
+       * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
+       */
+      public Builder setAperture(
+          xtech.selfomat.Api.ListSetting.Builder builderForValue) {
+        if (apertureBuilder_ == null) {
+          aperture_ = builderForValue.build();
+          onChanged();
+        } else {
+          apertureBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
+       */
+      public Builder mergeAperture(xtech.selfomat.Api.ListSetting value) {
+        if (apertureBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              aperture_ != null &&
+              aperture_ != xtech.selfomat.Api.ListSetting.getDefaultInstance()) {
+            aperture_ =
+              xtech.selfomat.Api.ListSetting.newBuilder(aperture_).mergeFrom(value).buildPartial();
+          } else {
+            aperture_ = value;
+          }
+          onChanged();
+        } else {
+          apertureBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
        */
       public Builder clearAperture() {
+        if (apertureBuilder_ == null) {
+          aperture_ = null;
+          onChanged();
+        } else {
+          apertureBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000004);
-        aperture_ = 0;
-        onChanged();
         return this;
       }
-
-      private int exposureCompensation_ ;
       /**
-       * <code>required int32 exposure_compensation = 4;</code>
+       * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
+       */
+      public xtech.selfomat.Api.ListSetting.Builder getApertureBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getApertureFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
+       */
+      public xtech.selfomat.Api.ListSettingOrBuilder getApertureOrBuilder() {
+        if (apertureBuilder_ != null) {
+          return apertureBuilder_.getMessageOrBuilder();
+        } else {
+          return aperture_ == null ?
+              xtech.selfomat.Api.ListSetting.getDefaultInstance() : aperture_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting aperture = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder> 
+          getApertureFieldBuilder() {
+        if (apertureBuilder_ == null) {
+          apertureBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder>(
+                  getAperture(),
+                  getParentForChildren(),
+                  isClean());
+          aperture_ = null;
+        }
+        return apertureBuilder_;
+      }
+
+      private xtech.selfomat.Api.ListSetting exposureCompensation_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder> exposureCompensationBuilder_;
+      /**
+       * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
        */
       public boolean hasExposureCompensation() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required int32 exposure_compensation = 4;</code>
+       * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
        */
-      public int getExposureCompensation() {
-        return exposureCompensation_;
+      public xtech.selfomat.Api.ListSetting getExposureCompensation() {
+        if (exposureCompensationBuilder_ == null) {
+          return exposureCompensation_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : exposureCompensation_;
+        } else {
+          return exposureCompensationBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required int32 exposure_compensation = 4;</code>
+       * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
        */
-      public Builder setExposureCompensation(int value) {
+      public Builder setExposureCompensation(xtech.selfomat.Api.ListSetting value) {
+        if (exposureCompensationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          exposureCompensation_ = value;
+          onChanged();
+        } else {
+          exposureCompensationBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000008;
-        exposureCompensation_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required int32 exposure_compensation = 4;</code>
+       * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
+       */
+      public Builder setExposureCompensation(
+          xtech.selfomat.Api.ListSetting.Builder builderForValue) {
+        if (exposureCompensationBuilder_ == null) {
+          exposureCompensation_ = builderForValue.build();
+          onChanged();
+        } else {
+          exposureCompensationBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
+       */
+      public Builder mergeExposureCompensation(xtech.selfomat.Api.ListSetting value) {
+        if (exposureCompensationBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              exposureCompensation_ != null &&
+              exposureCompensation_ != xtech.selfomat.Api.ListSetting.getDefaultInstance()) {
+            exposureCompensation_ =
+              xtech.selfomat.Api.ListSetting.newBuilder(exposureCompensation_).mergeFrom(value).buildPartial();
+          } else {
+            exposureCompensation_ = value;
+          }
+          onChanged();
+        } else {
+          exposureCompensationBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
        */
       public Builder clearExposureCompensation() {
+        if (exposureCompensationBuilder_ == null) {
+          exposureCompensation_ = null;
+          onChanged();
+        } else {
+          exposureCompensationBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000008);
-        exposureCompensation_ = 0;
-        onChanged();
         return this;
       }
-
-      private int imageFormat_ ;
       /**
-       * <code>required int32 image_format = 5;</code>
+       * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
+       */
+      public xtech.selfomat.Api.ListSetting.Builder getExposureCompensationBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getExposureCompensationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
+       */
+      public xtech.selfomat.Api.ListSettingOrBuilder getExposureCompensationOrBuilder() {
+        if (exposureCompensationBuilder_ != null) {
+          return exposureCompensationBuilder_.getMessageOrBuilder();
+        } else {
+          return exposureCompensation_ == null ?
+              xtech.selfomat.Api.ListSetting.getDefaultInstance() : exposureCompensation_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting exposure_compensation = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder> 
+          getExposureCompensationFieldBuilder() {
+        if (exposureCompensationBuilder_ == null) {
+          exposureCompensationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder>(
+                  getExposureCompensation(),
+                  getParentForChildren(),
+                  isClean());
+          exposureCompensation_ = null;
+        }
+        return exposureCompensationBuilder_;
+      }
+
+      private xtech.selfomat.Api.ListSetting imageFormat_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder> imageFormatBuilder_;
+      /**
+       * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
        */
       public boolean hasImageFormat() {
-        return ((bitField0_ & 0x00000010) != 0);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required int32 image_format = 5;</code>
+       * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
        */
-      public int getImageFormat() {
-        return imageFormat_;
+      public xtech.selfomat.Api.ListSetting getImageFormat() {
+        if (imageFormatBuilder_ == null) {
+          return imageFormat_ == null ? xtech.selfomat.Api.ListSetting.getDefaultInstance() : imageFormat_;
+        } else {
+          return imageFormatBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required int32 image_format = 5;</code>
+       * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
        */
-      public Builder setImageFormat(int value) {
+      public Builder setImageFormat(xtech.selfomat.Api.ListSetting value) {
+        if (imageFormatBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          imageFormat_ = value;
+          onChanged();
+        } else {
+          imageFormatBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000010;
-        imageFormat_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required int32 image_format = 5;</code>
+       * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
+       */
+      public Builder setImageFormat(
+          xtech.selfomat.Api.ListSetting.Builder builderForValue) {
+        if (imageFormatBuilder_ == null) {
+          imageFormat_ = builderForValue.build();
+          onChanged();
+        } else {
+          imageFormatBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
+       */
+      public Builder mergeImageFormat(xtech.selfomat.Api.ListSetting value) {
+        if (imageFormatBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              imageFormat_ != null &&
+              imageFormat_ != xtech.selfomat.Api.ListSetting.getDefaultInstance()) {
+            imageFormat_ =
+              xtech.selfomat.Api.ListSetting.newBuilder(imageFormat_).mergeFrom(value).buildPartial();
+          } else {
+            imageFormat_ = value;
+          }
+          onChanged();
+        } else {
+          imageFormatBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
        */
       public Builder clearImageFormat() {
+        if (imageFormatBuilder_ == null) {
+          imageFormat_ = null;
+          onChanged();
+        } else {
+          imageFormatBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000010);
-        imageFormat_ = 0;
-        onChanged();
         return this;
       }
-
-      private java.lang.Object cameraName_ = "";
       /**
-       * <code>required string camera_name = 7;</code>
+       * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
+       */
+      public xtech.selfomat.Api.ListSetting.Builder getImageFormatBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getImageFormatFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
+       */
+      public xtech.selfomat.Api.ListSettingOrBuilder getImageFormatOrBuilder() {
+        if (imageFormatBuilder_ != null) {
+          return imageFormatBuilder_.getMessageOrBuilder();
+        } else {
+          return imageFormat_ == null ?
+              xtech.selfomat.Api.ListSetting.getDefaultInstance() : imageFormat_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.ListSetting image_format = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder> 
+          getImageFormatFieldBuilder() {
+        if (imageFormatBuilder_ == null) {
+          imageFormatBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.ListSetting, xtech.selfomat.Api.ListSetting.Builder, xtech.selfomat.Api.ListSettingOrBuilder>(
+                  getImageFormat(),
+                  getParentForChildren(),
+                  isClean());
+          imageFormat_ = null;
+        }
+        return imageFormatBuilder_;
+      }
+
+      private xtech.selfomat.Api.ReadOnlySetting cameraName_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ReadOnlySetting, xtech.selfomat.Api.ReadOnlySetting.Builder, xtech.selfomat.Api.ReadOnlySettingOrBuilder> cameraNameBuilder_;
+      /**
+       * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
        */
       public boolean hasCameraName() {
-        return ((bitField0_ & 0x00000020) != 0);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>required string camera_name = 7;</code>
+       * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
        */
-      public java.lang.String getCameraName() {
-        java.lang.Object ref = cameraName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            cameraName_ = s;
+      public xtech.selfomat.Api.ReadOnlySetting getCameraName() {
+        if (cameraNameBuilder_ == null) {
+          return cameraName_ == null ? xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance() : cameraName_;
+        } else {
+          return cameraNameBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
+       */
+      public Builder setCameraName(xtech.selfomat.Api.ReadOnlySetting value) {
+        if (cameraNameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
           }
-          return s;
+          cameraName_ = value;
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          cameraNameBuilder_.setMessage(value);
         }
+        bitField0_ |= 0x00000020;
+        return this;
       }
       /**
-       * <code>required string camera_name = 7;</code>
-       */
-      public com.google.protobuf.ByteString
-          getCameraNameBytes() {
-        java.lang.Object ref = cameraName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          cameraName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string camera_name = 7;</code>
+       * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
        */
       public Builder setCameraName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-        cameraName_ = value;
-        onChanged();
+          xtech.selfomat.Api.ReadOnlySetting.Builder builderForValue) {
+        if (cameraNameBuilder_ == null) {
+          cameraName_ = builderForValue.build();
+          onChanged();
+        } else {
+          cameraNameBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
-       * <code>required string camera_name = 7;</code>
+       * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
+       */
+      public Builder mergeCameraName(xtech.selfomat.Api.ReadOnlySetting value) {
+        if (cameraNameBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020) &&
+              cameraName_ != null &&
+              cameraName_ != xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance()) {
+            cameraName_ =
+              xtech.selfomat.Api.ReadOnlySetting.newBuilder(cameraName_).mergeFrom(value).buildPartial();
+          } else {
+            cameraName_ = value;
+          }
+          onChanged();
+        } else {
+          cameraNameBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
        */
       public Builder clearCameraName() {
+        if (cameraNameBuilder_ == null) {
+          cameraName_ = null;
+          onChanged();
+        } else {
+          cameraNameBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000020);
-        cameraName_ = getDefaultInstance().getCameraName();
-        onChanged();
         return this;
       }
       /**
-       * <code>required string camera_name = 7;</code>
+       * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
        */
-      public Builder setCameraNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-        cameraName_ = value;
+      public xtech.selfomat.Api.ReadOnlySetting.Builder getCameraNameBuilder() {
+        bitField0_ |= 0x00000020;
         onChanged();
-        return this;
+        return getCameraNameFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
+       */
+      public xtech.selfomat.Api.ReadOnlySettingOrBuilder getCameraNameOrBuilder() {
+        if (cameraNameBuilder_ != null) {
+          return cameraNameBuilder_.getMessageOrBuilder();
+        } else {
+          return cameraName_ == null ?
+              xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance() : cameraName_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.ReadOnlySetting camera_name = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ReadOnlySetting, xtech.selfomat.Api.ReadOnlySetting.Builder, xtech.selfomat.Api.ReadOnlySettingOrBuilder> 
+          getCameraNameFieldBuilder() {
+        if (cameraNameBuilder_ == null) {
+          cameraNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.ReadOnlySetting, xtech.selfomat.Api.ReadOnlySetting.Builder, xtech.selfomat.Api.ReadOnlySettingOrBuilder>(
+                  getCameraName(),
+                  getParentForChildren(),
+                  isClean());
+          cameraName_ = null;
+        }
+        return cameraNameBuilder_;
       }
 
-      private java.lang.Object lensName_ = "";
+      private xtech.selfomat.Api.ReadOnlySetting lensName_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ReadOnlySetting, xtech.selfomat.Api.ReadOnlySetting.Builder, xtech.selfomat.Api.ReadOnlySettingOrBuilder> lensNameBuilder_;
       /**
-       * <code>required string lens_name = 8;</code>
+       * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
        */
       public boolean hasLensName() {
-        return ((bitField0_ & 0x00000040) != 0);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>required string lens_name = 8;</code>
+       * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
        */
-      public java.lang.String getLensName() {
-        java.lang.Object ref = lensName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            lensName_ = s;
+      public xtech.selfomat.Api.ReadOnlySetting getLensName() {
+        if (lensNameBuilder_ == null) {
+          return lensName_ == null ? xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance() : lensName_;
+        } else {
+          return lensNameBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
+       */
+      public Builder setLensName(xtech.selfomat.Api.ReadOnlySetting value) {
+        if (lensNameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
           }
-          return s;
+          lensName_ = value;
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          lensNameBuilder_.setMessage(value);
         }
+        bitField0_ |= 0x00000040;
+        return this;
       }
       /**
-       * <code>required string lens_name = 8;</code>
-       */
-      public com.google.protobuf.ByteString
-          getLensNameBytes() {
-        java.lang.Object ref = lensName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          lensName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string lens_name = 8;</code>
+       * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
        */
       public Builder setLensName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
-        lensName_ = value;
-        onChanged();
+          xtech.selfomat.Api.ReadOnlySetting.Builder builderForValue) {
+        if (lensNameBuilder_ == null) {
+          lensName_ = builderForValue.build();
+          onChanged();
+        } else {
+          lensNameBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
-       * <code>required string lens_name = 8;</code>
+       * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
+       */
+      public Builder mergeLensName(xtech.selfomat.Api.ReadOnlySetting value) {
+        if (lensNameBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040) &&
+              lensName_ != null &&
+              lensName_ != xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance()) {
+            lensName_ =
+              xtech.selfomat.Api.ReadOnlySetting.newBuilder(lensName_).mergeFrom(value).buildPartial();
+          } else {
+            lensName_ = value;
+          }
+          onChanged();
+        } else {
+          lensNameBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
        */
       public Builder clearLensName() {
+        if (lensNameBuilder_ == null) {
+          lensName_ = null;
+          onChanged();
+        } else {
+          lensNameBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000040);
-        lensName_ = getDefaultInstance().getLensName();
-        onChanged();
         return this;
       }
       /**
-       * <code>required string lens_name = 8;</code>
+       * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
        */
-      public Builder setLensNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
-        lensName_ = value;
+      public xtech.selfomat.Api.ReadOnlySetting.Builder getLensNameBuilder() {
+        bitField0_ |= 0x00000040;
         onChanged();
-        return this;
+        return getLensNameFieldBuilder().getBuilder();
       }
-      @java.lang.Override
+      /**
+       * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
+       */
+      public xtech.selfomat.Api.ReadOnlySettingOrBuilder getLensNameOrBuilder() {
+        if (lensNameBuilder_ != null) {
+          return lensNameBuilder_.getMessageOrBuilder();
+        } else {
+          return lensName_ == null ?
+              xtech.selfomat.Api.ReadOnlySetting.getDefaultInstance() : lensName_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.ReadOnlySetting lens_name = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.ReadOnlySetting, xtech.selfomat.Api.ReadOnlySetting.Builder, xtech.selfomat.Api.ReadOnlySettingOrBuilder> 
+          getLensNameFieldBuilder() {
+        if (lensNameBuilder_ == null) {
+          lensNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.ReadOnlySetting, xtech.selfomat.Api.ReadOnlySetting.Builder, xtech.selfomat.Api.ReadOnlySettingOrBuilder>(
+                  getLensName(),
+                  getParentForChildren(),
+                  isClean());
+          lensName_ = null;
+        }
+        return lensNameBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1838,12 +8435,11 @@ public final class Api {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CameraSettings>
         PARSER = new com.google.protobuf.AbstractParser<CameraSettings>() {
-      @java.lang.Override
       public CameraSettings parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CameraSettings(input, extensionRegistry);
+          return new CameraSettings(input, extensionRegistry);
       }
     };
 
@@ -1856,1362 +8452,7 @@ public final class Api {
       return PARSER;
     }
 
-    @java.lang.Override
     public xtech.selfomat.Api.CameraSettings getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface CameraChoicesOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:xtech.selfomat.CameraChoices)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>repeated string iso_choices = 1;</code>
-     */
-    java.util.List<java.lang.String>
-        getIsoChoicesList();
-    /**
-     * <code>repeated string iso_choices = 1;</code>
-     */
-    int getIsoChoicesCount();
-    /**
-     * <code>repeated string iso_choices = 1;</code>
-     */
-    java.lang.String getIsoChoices(int index);
-    /**
-     * <code>repeated string iso_choices = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getIsoChoicesBytes(int index);
-
-    /**
-     * <code>repeated string shutter_speed_choices = 2;</code>
-     */
-    java.util.List<java.lang.String>
-        getShutterSpeedChoicesList();
-    /**
-     * <code>repeated string shutter_speed_choices = 2;</code>
-     */
-    int getShutterSpeedChoicesCount();
-    /**
-     * <code>repeated string shutter_speed_choices = 2;</code>
-     */
-    java.lang.String getShutterSpeedChoices(int index);
-    /**
-     * <code>repeated string shutter_speed_choices = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getShutterSpeedChoicesBytes(int index);
-
-    /**
-     * <code>repeated string aperture_choices = 3;</code>
-     */
-    java.util.List<java.lang.String>
-        getApertureChoicesList();
-    /**
-     * <code>repeated string aperture_choices = 3;</code>
-     */
-    int getApertureChoicesCount();
-    /**
-     * <code>repeated string aperture_choices = 3;</code>
-     */
-    java.lang.String getApertureChoices(int index);
-    /**
-     * <code>repeated string aperture_choices = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getApertureChoicesBytes(int index);
-
-    /**
-     * <code>repeated string exposure_compensation_choices = 4;</code>
-     */
-    java.util.List<java.lang.String>
-        getExposureCompensationChoicesList();
-    /**
-     * <code>repeated string exposure_compensation_choices = 4;</code>
-     */
-    int getExposureCompensationChoicesCount();
-    /**
-     * <code>repeated string exposure_compensation_choices = 4;</code>
-     */
-    java.lang.String getExposureCompensationChoices(int index);
-    /**
-     * <code>repeated string exposure_compensation_choices = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getExposureCompensationChoicesBytes(int index);
-
-    /**
-     * <code>repeated string image_format_choices = 5;</code>
-     */
-    java.util.List<java.lang.String>
-        getImageFormatChoicesList();
-    /**
-     * <code>repeated string image_format_choices = 5;</code>
-     */
-    int getImageFormatChoicesCount();
-    /**
-     * <code>repeated string image_format_choices = 5;</code>
-     */
-    java.lang.String getImageFormatChoices(int index);
-    /**
-     * <code>repeated string image_format_choices = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getImageFormatChoicesBytes(int index);
-  }
-  /**
-   * Protobuf type {@code xtech.selfomat.CameraChoices}
-   */
-  public  static final class CameraChoices extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:xtech.selfomat.CameraChoices)
-      CameraChoicesOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use CameraChoices.newBuilder() to construct.
-    private CameraChoices(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private CameraChoices() {
-      isoChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      shutterSpeedChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      apertureChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      exposureCompensationChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      imageFormatChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private CameraChoices(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                isoChoices_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              isoChoices_.add(bs);
-              break;
-            }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                shutterSpeedChoices_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              shutterSpeedChoices_.add(bs);
-              break;
-            }
-            case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                apertureChoices_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              apertureChoices_.add(bs);
-              break;
-            }
-            case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                exposureCompensationChoices_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              exposureCompensationChoices_.add(bs);
-              break;
-            }
-            case 42: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                imageFormatChoices_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              imageFormatChoices_.add(bs);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          isoChoices_ = isoChoices_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          shutterSpeedChoices_ = shutterSpeedChoices_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          apertureChoices_ = apertureChoices_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          exposureCompensationChoices_ = exposureCompensationChoices_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000010) != 0)) {
-          imageFormatChoices_ = imageFormatChoices_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return xtech.selfomat.Api.internal_static_xtech_selfomat_CameraChoices_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return xtech.selfomat.Api.internal_static_xtech_selfomat_CameraChoices_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              xtech.selfomat.Api.CameraChoices.class, xtech.selfomat.Api.CameraChoices.Builder.class);
-    }
-
-    public static final int ISO_CHOICES_FIELD_NUMBER = 1;
-    private com.google.protobuf.LazyStringList isoChoices_;
-    /**
-     * <code>repeated string iso_choices = 1;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getIsoChoicesList() {
-      return isoChoices_;
-    }
-    /**
-     * <code>repeated string iso_choices = 1;</code>
-     */
-    public int getIsoChoicesCount() {
-      return isoChoices_.size();
-    }
-    /**
-     * <code>repeated string iso_choices = 1;</code>
-     */
-    public java.lang.String getIsoChoices(int index) {
-      return isoChoices_.get(index);
-    }
-    /**
-     * <code>repeated string iso_choices = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getIsoChoicesBytes(int index) {
-      return isoChoices_.getByteString(index);
-    }
-
-    public static final int SHUTTER_SPEED_CHOICES_FIELD_NUMBER = 2;
-    private com.google.protobuf.LazyStringList shutterSpeedChoices_;
-    /**
-     * <code>repeated string shutter_speed_choices = 2;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getShutterSpeedChoicesList() {
-      return shutterSpeedChoices_;
-    }
-    /**
-     * <code>repeated string shutter_speed_choices = 2;</code>
-     */
-    public int getShutterSpeedChoicesCount() {
-      return shutterSpeedChoices_.size();
-    }
-    /**
-     * <code>repeated string shutter_speed_choices = 2;</code>
-     */
-    public java.lang.String getShutterSpeedChoices(int index) {
-      return shutterSpeedChoices_.get(index);
-    }
-    /**
-     * <code>repeated string shutter_speed_choices = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getShutterSpeedChoicesBytes(int index) {
-      return shutterSpeedChoices_.getByteString(index);
-    }
-
-    public static final int APERTURE_CHOICES_FIELD_NUMBER = 3;
-    private com.google.protobuf.LazyStringList apertureChoices_;
-    /**
-     * <code>repeated string aperture_choices = 3;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getApertureChoicesList() {
-      return apertureChoices_;
-    }
-    /**
-     * <code>repeated string aperture_choices = 3;</code>
-     */
-    public int getApertureChoicesCount() {
-      return apertureChoices_.size();
-    }
-    /**
-     * <code>repeated string aperture_choices = 3;</code>
-     */
-    public java.lang.String getApertureChoices(int index) {
-      return apertureChoices_.get(index);
-    }
-    /**
-     * <code>repeated string aperture_choices = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getApertureChoicesBytes(int index) {
-      return apertureChoices_.getByteString(index);
-    }
-
-    public static final int EXPOSURE_COMPENSATION_CHOICES_FIELD_NUMBER = 4;
-    private com.google.protobuf.LazyStringList exposureCompensationChoices_;
-    /**
-     * <code>repeated string exposure_compensation_choices = 4;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getExposureCompensationChoicesList() {
-      return exposureCompensationChoices_;
-    }
-    /**
-     * <code>repeated string exposure_compensation_choices = 4;</code>
-     */
-    public int getExposureCompensationChoicesCount() {
-      return exposureCompensationChoices_.size();
-    }
-    /**
-     * <code>repeated string exposure_compensation_choices = 4;</code>
-     */
-    public java.lang.String getExposureCompensationChoices(int index) {
-      return exposureCompensationChoices_.get(index);
-    }
-    /**
-     * <code>repeated string exposure_compensation_choices = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getExposureCompensationChoicesBytes(int index) {
-      return exposureCompensationChoices_.getByteString(index);
-    }
-
-    public static final int IMAGE_FORMAT_CHOICES_FIELD_NUMBER = 5;
-    private com.google.protobuf.LazyStringList imageFormatChoices_;
-    /**
-     * <code>repeated string image_format_choices = 5;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getImageFormatChoicesList() {
-      return imageFormatChoices_;
-    }
-    /**
-     * <code>repeated string image_format_choices = 5;</code>
-     */
-    public int getImageFormatChoicesCount() {
-      return imageFormatChoices_.size();
-    }
-    /**
-     * <code>repeated string image_format_choices = 5;</code>
-     */
-    public java.lang.String getImageFormatChoices(int index) {
-      return imageFormatChoices_.get(index);
-    }
-    /**
-     * <code>repeated string image_format_choices = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getImageFormatChoicesBytes(int index) {
-      return imageFormatChoices_.getByteString(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < isoChoices_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, isoChoices_.getRaw(i));
-      }
-      for (int i = 0; i < shutterSpeedChoices_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, shutterSpeedChoices_.getRaw(i));
-      }
-      for (int i = 0; i < apertureChoices_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, apertureChoices_.getRaw(i));
-      }
-      for (int i = 0; i < exposureCompensationChoices_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, exposureCompensationChoices_.getRaw(i));
-      }
-      for (int i = 0; i < imageFormatChoices_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, imageFormatChoices_.getRaw(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < isoChoices_.size(); i++) {
-          dataSize += computeStringSizeNoTag(isoChoices_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getIsoChoicesList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < shutterSpeedChoices_.size(); i++) {
-          dataSize += computeStringSizeNoTag(shutterSpeedChoices_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getShutterSpeedChoicesList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < apertureChoices_.size(); i++) {
-          dataSize += computeStringSizeNoTag(apertureChoices_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getApertureChoicesList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < exposureCompensationChoices_.size(); i++) {
-          dataSize += computeStringSizeNoTag(exposureCompensationChoices_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getExposureCompensationChoicesList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < imageFormatChoices_.size(); i++) {
-          dataSize += computeStringSizeNoTag(imageFormatChoices_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getImageFormatChoicesList().size();
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof xtech.selfomat.Api.CameraChoices)) {
-        return super.equals(obj);
-      }
-      xtech.selfomat.Api.CameraChoices other = (xtech.selfomat.Api.CameraChoices) obj;
-
-      if (!getIsoChoicesList()
-          .equals(other.getIsoChoicesList())) return false;
-      if (!getShutterSpeedChoicesList()
-          .equals(other.getShutterSpeedChoicesList())) return false;
-      if (!getApertureChoicesList()
-          .equals(other.getApertureChoicesList())) return false;
-      if (!getExposureCompensationChoicesList()
-          .equals(other.getExposureCompensationChoicesList())) return false;
-      if (!getImageFormatChoicesList()
-          .equals(other.getImageFormatChoicesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getIsoChoicesCount() > 0) {
-        hash = (37 * hash) + ISO_CHOICES_FIELD_NUMBER;
-        hash = (53 * hash) + getIsoChoicesList().hashCode();
-      }
-      if (getShutterSpeedChoicesCount() > 0) {
-        hash = (37 * hash) + SHUTTER_SPEED_CHOICES_FIELD_NUMBER;
-        hash = (53 * hash) + getShutterSpeedChoicesList().hashCode();
-      }
-      if (getApertureChoicesCount() > 0) {
-        hash = (37 * hash) + APERTURE_CHOICES_FIELD_NUMBER;
-        hash = (53 * hash) + getApertureChoicesList().hashCode();
-      }
-      if (getExposureCompensationChoicesCount() > 0) {
-        hash = (37 * hash) + EXPOSURE_COMPENSATION_CHOICES_FIELD_NUMBER;
-        hash = (53 * hash) + getExposureCompensationChoicesList().hashCode();
-      }
-      if (getImageFormatChoicesCount() > 0) {
-        hash = (37 * hash) + IMAGE_FORMAT_CHOICES_FIELD_NUMBER;
-        hash = (53 * hash) + getImageFormatChoicesList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static xtech.selfomat.Api.CameraChoices parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static xtech.selfomat.Api.CameraChoices parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static xtech.selfomat.Api.CameraChoices parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static xtech.selfomat.Api.CameraChoices parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static xtech.selfomat.Api.CameraChoices parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static xtech.selfomat.Api.CameraChoices parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static xtech.selfomat.Api.CameraChoices parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static xtech.selfomat.Api.CameraChoices parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static xtech.selfomat.Api.CameraChoices parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static xtech.selfomat.Api.CameraChoices parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static xtech.selfomat.Api.CameraChoices parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static xtech.selfomat.Api.CameraChoices parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(xtech.selfomat.Api.CameraChoices prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code xtech.selfomat.CameraChoices}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:xtech.selfomat.CameraChoices)
-        xtech.selfomat.Api.CameraChoicesOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return xtech.selfomat.Api.internal_static_xtech_selfomat_CameraChoices_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return xtech.selfomat.Api.internal_static_xtech_selfomat_CameraChoices_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                xtech.selfomat.Api.CameraChoices.class, xtech.selfomat.Api.CameraChoices.Builder.class);
-      }
-
-      // Construct using xtech.selfomat.Api.CameraChoices.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        isoChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        shutterSpeedChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        apertureChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        exposureCompensationChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        imageFormatChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000010);
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return xtech.selfomat.Api.internal_static_xtech_selfomat_CameraChoices_descriptor;
-      }
-
-      @java.lang.Override
-      public xtech.selfomat.Api.CameraChoices getDefaultInstanceForType() {
-        return xtech.selfomat.Api.CameraChoices.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public xtech.selfomat.Api.CameraChoices build() {
-        xtech.selfomat.Api.CameraChoices result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public xtech.selfomat.Api.CameraChoices buildPartial() {
-        xtech.selfomat.Api.CameraChoices result = new xtech.selfomat.Api.CameraChoices(this);
-        int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          isoChoices_ = isoChoices_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.isoChoices_ = isoChoices_;
-        if (((bitField0_ & 0x00000002) != 0)) {
-          shutterSpeedChoices_ = shutterSpeedChoices_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.shutterSpeedChoices_ = shutterSpeedChoices_;
-        if (((bitField0_ & 0x00000004) != 0)) {
-          apertureChoices_ = apertureChoices_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.apertureChoices_ = apertureChoices_;
-        if (((bitField0_ & 0x00000008) != 0)) {
-          exposureCompensationChoices_ = exposureCompensationChoices_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.exposureCompensationChoices_ = exposureCompensationChoices_;
-        if (((bitField0_ & 0x00000010) != 0)) {
-          imageFormatChoices_ = imageFormatChoices_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000010);
-        }
-        result.imageFormatChoices_ = imageFormatChoices_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof xtech.selfomat.Api.CameraChoices) {
-          return mergeFrom((xtech.selfomat.Api.CameraChoices)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(xtech.selfomat.Api.CameraChoices other) {
-        if (other == xtech.selfomat.Api.CameraChoices.getDefaultInstance()) return this;
-        if (!other.isoChoices_.isEmpty()) {
-          if (isoChoices_.isEmpty()) {
-            isoChoices_ = other.isoChoices_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureIsoChoicesIsMutable();
-            isoChoices_.addAll(other.isoChoices_);
-          }
-          onChanged();
-        }
-        if (!other.shutterSpeedChoices_.isEmpty()) {
-          if (shutterSpeedChoices_.isEmpty()) {
-            shutterSpeedChoices_ = other.shutterSpeedChoices_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureShutterSpeedChoicesIsMutable();
-            shutterSpeedChoices_.addAll(other.shutterSpeedChoices_);
-          }
-          onChanged();
-        }
-        if (!other.apertureChoices_.isEmpty()) {
-          if (apertureChoices_.isEmpty()) {
-            apertureChoices_ = other.apertureChoices_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            ensureApertureChoicesIsMutable();
-            apertureChoices_.addAll(other.apertureChoices_);
-          }
-          onChanged();
-        }
-        if (!other.exposureCompensationChoices_.isEmpty()) {
-          if (exposureCompensationChoices_.isEmpty()) {
-            exposureCompensationChoices_ = other.exposureCompensationChoices_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureExposureCompensationChoicesIsMutable();
-            exposureCompensationChoices_.addAll(other.exposureCompensationChoices_);
-          }
-          onChanged();
-        }
-        if (!other.imageFormatChoices_.isEmpty()) {
-          if (imageFormatChoices_.isEmpty()) {
-            imageFormatChoices_ = other.imageFormatChoices_;
-            bitField0_ = (bitField0_ & ~0x00000010);
-          } else {
-            ensureImageFormatChoicesIsMutable();
-            imageFormatChoices_.addAll(other.imageFormatChoices_);
-          }
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        xtech.selfomat.Api.CameraChoices parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (xtech.selfomat.Api.CameraChoices) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.LazyStringList isoChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureIsoChoicesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          isoChoices_ = new com.google.protobuf.LazyStringArrayList(isoChoices_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <code>repeated string iso_choices = 1;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getIsoChoicesList() {
-        return isoChoices_.getUnmodifiableView();
-      }
-      /**
-       * <code>repeated string iso_choices = 1;</code>
-       */
-      public int getIsoChoicesCount() {
-        return isoChoices_.size();
-      }
-      /**
-       * <code>repeated string iso_choices = 1;</code>
-       */
-      public java.lang.String getIsoChoices(int index) {
-        return isoChoices_.get(index);
-      }
-      /**
-       * <code>repeated string iso_choices = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getIsoChoicesBytes(int index) {
-        return isoChoices_.getByteString(index);
-      }
-      /**
-       * <code>repeated string iso_choices = 1;</code>
-       */
-      public Builder setIsoChoices(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIsoChoicesIsMutable();
-        isoChoices_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string iso_choices = 1;</code>
-       */
-      public Builder addIsoChoices(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIsoChoicesIsMutable();
-        isoChoices_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string iso_choices = 1;</code>
-       */
-      public Builder addAllIsoChoices(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureIsoChoicesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, isoChoices_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string iso_choices = 1;</code>
-       */
-      public Builder clearIsoChoices() {
-        isoChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string iso_choices = 1;</code>
-       */
-      public Builder addIsoChoicesBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIsoChoicesIsMutable();
-        isoChoices_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList shutterSpeedChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureShutterSpeedChoicesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
-          shutterSpeedChoices_ = new com.google.protobuf.LazyStringArrayList(shutterSpeedChoices_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-      /**
-       * <code>repeated string shutter_speed_choices = 2;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getShutterSpeedChoicesList() {
-        return shutterSpeedChoices_.getUnmodifiableView();
-      }
-      /**
-       * <code>repeated string shutter_speed_choices = 2;</code>
-       */
-      public int getShutterSpeedChoicesCount() {
-        return shutterSpeedChoices_.size();
-      }
-      /**
-       * <code>repeated string shutter_speed_choices = 2;</code>
-       */
-      public java.lang.String getShutterSpeedChoices(int index) {
-        return shutterSpeedChoices_.get(index);
-      }
-      /**
-       * <code>repeated string shutter_speed_choices = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getShutterSpeedChoicesBytes(int index) {
-        return shutterSpeedChoices_.getByteString(index);
-      }
-      /**
-       * <code>repeated string shutter_speed_choices = 2;</code>
-       */
-      public Builder setShutterSpeedChoices(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureShutterSpeedChoicesIsMutable();
-        shutterSpeedChoices_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string shutter_speed_choices = 2;</code>
-       */
-      public Builder addShutterSpeedChoices(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureShutterSpeedChoicesIsMutable();
-        shutterSpeedChoices_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string shutter_speed_choices = 2;</code>
-       */
-      public Builder addAllShutterSpeedChoices(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureShutterSpeedChoicesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, shutterSpeedChoices_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string shutter_speed_choices = 2;</code>
-       */
-      public Builder clearShutterSpeedChoices() {
-        shutterSpeedChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string shutter_speed_choices = 2;</code>
-       */
-      public Builder addShutterSpeedChoicesBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureShutterSpeedChoicesIsMutable();
-        shutterSpeedChoices_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList apertureChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureApertureChoicesIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
-          apertureChoices_ = new com.google.protobuf.LazyStringArrayList(apertureChoices_);
-          bitField0_ |= 0x00000004;
-         }
-      }
-      /**
-       * <code>repeated string aperture_choices = 3;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getApertureChoicesList() {
-        return apertureChoices_.getUnmodifiableView();
-      }
-      /**
-       * <code>repeated string aperture_choices = 3;</code>
-       */
-      public int getApertureChoicesCount() {
-        return apertureChoices_.size();
-      }
-      /**
-       * <code>repeated string aperture_choices = 3;</code>
-       */
-      public java.lang.String getApertureChoices(int index) {
-        return apertureChoices_.get(index);
-      }
-      /**
-       * <code>repeated string aperture_choices = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getApertureChoicesBytes(int index) {
-        return apertureChoices_.getByteString(index);
-      }
-      /**
-       * <code>repeated string aperture_choices = 3;</code>
-       */
-      public Builder setApertureChoices(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureApertureChoicesIsMutable();
-        apertureChoices_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string aperture_choices = 3;</code>
-       */
-      public Builder addApertureChoices(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureApertureChoicesIsMutable();
-        apertureChoices_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string aperture_choices = 3;</code>
-       */
-      public Builder addAllApertureChoices(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureApertureChoicesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, apertureChoices_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string aperture_choices = 3;</code>
-       */
-      public Builder clearApertureChoices() {
-        apertureChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string aperture_choices = 3;</code>
-       */
-      public Builder addApertureChoicesBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureApertureChoicesIsMutable();
-        apertureChoices_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList exposureCompensationChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureExposureCompensationChoicesIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
-          exposureCompensationChoices_ = new com.google.protobuf.LazyStringArrayList(exposureCompensationChoices_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-      /**
-       * <code>repeated string exposure_compensation_choices = 4;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getExposureCompensationChoicesList() {
-        return exposureCompensationChoices_.getUnmodifiableView();
-      }
-      /**
-       * <code>repeated string exposure_compensation_choices = 4;</code>
-       */
-      public int getExposureCompensationChoicesCount() {
-        return exposureCompensationChoices_.size();
-      }
-      /**
-       * <code>repeated string exposure_compensation_choices = 4;</code>
-       */
-      public java.lang.String getExposureCompensationChoices(int index) {
-        return exposureCompensationChoices_.get(index);
-      }
-      /**
-       * <code>repeated string exposure_compensation_choices = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getExposureCompensationChoicesBytes(int index) {
-        return exposureCompensationChoices_.getByteString(index);
-      }
-      /**
-       * <code>repeated string exposure_compensation_choices = 4;</code>
-       */
-      public Builder setExposureCompensationChoices(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExposureCompensationChoicesIsMutable();
-        exposureCompensationChoices_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string exposure_compensation_choices = 4;</code>
-       */
-      public Builder addExposureCompensationChoices(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExposureCompensationChoicesIsMutable();
-        exposureCompensationChoices_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string exposure_compensation_choices = 4;</code>
-       */
-      public Builder addAllExposureCompensationChoices(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureExposureCompensationChoicesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, exposureCompensationChoices_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string exposure_compensation_choices = 4;</code>
-       */
-      public Builder clearExposureCompensationChoices() {
-        exposureCompensationChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string exposure_compensation_choices = 4;</code>
-       */
-      public Builder addExposureCompensationChoicesBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExposureCompensationChoicesIsMutable();
-        exposureCompensationChoices_.add(value);
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.LazyStringList imageFormatChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureImageFormatChoicesIsMutable() {
-        if (!((bitField0_ & 0x00000010) != 0)) {
-          imageFormatChoices_ = new com.google.protobuf.LazyStringArrayList(imageFormatChoices_);
-          bitField0_ |= 0x00000010;
-         }
-      }
-      /**
-       * <code>repeated string image_format_choices = 5;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getImageFormatChoicesList() {
-        return imageFormatChoices_.getUnmodifiableView();
-      }
-      /**
-       * <code>repeated string image_format_choices = 5;</code>
-       */
-      public int getImageFormatChoicesCount() {
-        return imageFormatChoices_.size();
-      }
-      /**
-       * <code>repeated string image_format_choices = 5;</code>
-       */
-      public java.lang.String getImageFormatChoices(int index) {
-        return imageFormatChoices_.get(index);
-      }
-      /**
-       * <code>repeated string image_format_choices = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getImageFormatChoicesBytes(int index) {
-        return imageFormatChoices_.getByteString(index);
-      }
-      /**
-       * <code>repeated string image_format_choices = 5;</code>
-       */
-      public Builder setImageFormatChoices(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureImageFormatChoicesIsMutable();
-        imageFormatChoices_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string image_format_choices = 5;</code>
-       */
-      public Builder addImageFormatChoices(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureImageFormatChoicesIsMutable();
-        imageFormatChoices_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string image_format_choices = 5;</code>
-       */
-      public Builder addAllImageFormatChoices(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureImageFormatChoicesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, imageFormatChoices_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string image_format_choices = 5;</code>
-       */
-      public Builder clearImageFormatChoices() {
-        imageFormatChoices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000010);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string image_format_choices = 5;</code>
-       */
-      public Builder addImageFormatChoicesBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureImageFormatChoicesIsMutable();
-        imageFormatChoices_.add(value);
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:xtech.selfomat.CameraChoices)
-    }
-
-    // @@protoc_insertion_point(class_scope:xtech.selfomat.CameraChoices)
-    private static final xtech.selfomat.Api.CameraChoices DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new xtech.selfomat.Api.CameraChoices();
-    }
-
-    public static xtech.selfomat.Api.CameraChoices getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<CameraChoices>
-        PARSER = new com.google.protobuf.AbstractParser<CameraChoices>() {
-      @java.lang.Override
-      public CameraChoices parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CameraChoices(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<CameraChoices> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<CameraChoices> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public xtech.selfomat.Api.CameraChoices getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3222,67 +8463,95 @@ public final class Api {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required bool printer_enabled = 1;</code>
+     * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
      */
     boolean hasPrinterEnabled();
     /**
-     * <code>required bool printer_enabled = 1;</code>
+     * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
      */
-    boolean getPrinterEnabled();
+    xtech.selfomat.Api.BoolSetting getPrinterEnabled();
+    /**
+     * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
+     */
+    xtech.selfomat.Api.BoolSettingOrBuilder getPrinterEnabledOrBuilder();
 
     /**
-     * <code>required bool flash_enabled = 2;</code>
+     * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
      */
     boolean hasFlashEnabled();
     /**
-     * <code>required bool flash_enabled = 2;</code>
+     * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
      */
-    boolean getFlashEnabled();
+    xtech.selfomat.Api.BoolSetting getFlashEnabled();
+    /**
+     * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
+     */
+    xtech.selfomat.Api.BoolSettingOrBuilder getFlashEnabledOrBuilder();
 
     /**
-     * <code>required float flash_brightness = 3;</code>
+     * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
      */
     boolean hasFlashBrightness();
     /**
-     * <code>required float flash_brightness = 3;</code>
+     * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
      */
-    float getFlashBrightness();
+    xtech.selfomat.Api.FloatSetting getFlashBrightness();
+    /**
+     * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
+     */
+    xtech.selfomat.Api.FloatSettingOrBuilder getFlashBrightnessOrBuilder();
 
     /**
-     * <code>required float flash_fade = 4;</code>
+     * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
      */
     boolean hasFlashFade();
     /**
-     * <code>required float flash_fade = 4;</code>
+     * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
      */
-    float getFlashFade();
+    xtech.selfomat.Api.FloatSetting getFlashFade();
+    /**
+     * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
+     */
+    xtech.selfomat.Api.FloatSettingOrBuilder getFlashFadeOrBuilder();
 
     /**
-     * <code>required uint64 flash_delay_micros = 5;</code>
+     * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
      */
     boolean hasFlashDelayMicros();
     /**
-     * <code>required uint64 flash_delay_micros = 5;</code>
+     * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
      */
-    long getFlashDelayMicros();
+    xtech.selfomat.Api.IntSetting getFlashDelayMicros();
+    /**
+     * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
+     */
+    xtech.selfomat.Api.IntSettingOrBuilder getFlashDelayMicrosOrBuilder();
 
     /**
-     * <code>required uint64 flash_duration_micros = 6;</code>
+     * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
      */
     boolean hasFlashDurationMicros();
     /**
-     * <code>required uint64 flash_duration_micros = 6;</code>
+     * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
      */
-    long getFlashDurationMicros();
+    xtech.selfomat.Api.IntSetting getFlashDurationMicros();
+    /**
+     * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
+     */
+    xtech.selfomat.Api.IntSettingOrBuilder getFlashDurationMicrosOrBuilder();
 
     /**
-     * <code>required bool template_enabled = 7;</code>
+     * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
      */
     boolean hasTemplateEnabled();
     /**
-     * <code>required bool template_enabled = 7;</code>
+     * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
      */
-    boolean getTemplateEnabled();
+    xtech.selfomat.Api.BoolSetting getTemplateEnabled();
+    /**
+     * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
+     */
+    xtech.selfomat.Api.BoolSettingOrBuilder getTemplateEnabledOrBuilder();
   }
   /**
    * Protobuf type {@code xtech.selfomat.BoothSettings}
@@ -3291,7 +8560,6 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:xtech.selfomat.BoothSettings)
       BoothSettingsOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use BoothSettings.newBuilder() to construct.
     private BoothSettings(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -3309,9 +8577,6 @@ public final class Api {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3323,46 +8588,102 @@ public final class Api {
             case 0:
               done = true;
               break;
-            case 8: {
-              bitField0_ |= 0x00000001;
-              printerEnabled_ = input.readBool();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              flashEnabled_ = input.readBool();
-              break;
-            }
-            case 29: {
-              bitField0_ |= 0x00000004;
-              flashBrightness_ = input.readFloat();
-              break;
-            }
-            case 37: {
-              bitField0_ |= 0x00000008;
-              flashFade_ = input.readFloat();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              flashDelayMicros_ = input.readUInt64();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000020;
-              flashDurationMicros_ = input.readUInt64();
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000040;
-              templateEnabled_ = input.readBool();
-              break;
-            }
             default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
                 done = true;
               }
+              break;
+            }
+            case 10: {
+              xtech.selfomat.Api.BoolSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = printerEnabled_.toBuilder();
+              }
+              printerEnabled_ = input.readMessage(xtech.selfomat.Api.BoolSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(printerEnabled_);
+                printerEnabled_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              xtech.selfomat.Api.BoolSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = flashEnabled_.toBuilder();
+              }
+              flashEnabled_ = input.readMessage(xtech.selfomat.Api.BoolSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(flashEnabled_);
+                flashEnabled_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 26: {
+              xtech.selfomat.Api.FloatSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = flashBrightness_.toBuilder();
+              }
+              flashBrightness_ = input.readMessage(xtech.selfomat.Api.FloatSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(flashBrightness_);
+                flashBrightness_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              xtech.selfomat.Api.FloatSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = flashFade_.toBuilder();
+              }
+              flashFade_ = input.readMessage(xtech.selfomat.Api.FloatSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(flashFade_);
+                flashFade_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              xtech.selfomat.Api.IntSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = flashDelayMicros_.toBuilder();
+              }
+              flashDelayMicros_ = input.readMessage(xtech.selfomat.Api.IntSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(flashDelayMicros_);
+                flashDelayMicros_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            case 50: {
+              xtech.selfomat.Api.IntSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                subBuilder = flashDurationMicros_.toBuilder();
+              }
+              flashDurationMicros_ = input.readMessage(xtech.selfomat.Api.IntSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(flashDurationMicros_);
+                flashDurationMicros_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000020;
+              break;
+            }
+            case 58: {
+              xtech.selfomat.Api.BoolSetting.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                subBuilder = templateEnabled_.toBuilder();
+              }
+              templateEnabled_ = input.readMessage(xtech.selfomat.Api.BoolSetting.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(templateEnabled_);
+                templateEnabled_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
               break;
             }
           }
@@ -3382,7 +8703,6 @@ public final class Api {
       return xtech.selfomat.Api.internal_static_xtech_selfomat_BoothSettings_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return xtech.selfomat.Api.internal_static_xtech_selfomat_BoothSettings_fieldAccessorTable
@@ -3392,112 +8712,153 @@ public final class Api {
 
     private int bitField0_;
     public static final int PRINTER_ENABLED_FIELD_NUMBER = 1;
-    private boolean printerEnabled_;
+    private xtech.selfomat.Api.BoolSetting printerEnabled_;
     /**
-     * <code>required bool printer_enabled = 1;</code>
+     * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
      */
     public boolean hasPrinterEnabled() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required bool printer_enabled = 1;</code>
+     * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
      */
-    public boolean getPrinterEnabled() {
-      return printerEnabled_;
+    public xtech.selfomat.Api.BoolSetting getPrinterEnabled() {
+      return printerEnabled_ == null ? xtech.selfomat.Api.BoolSetting.getDefaultInstance() : printerEnabled_;
+    }
+    /**
+     * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
+     */
+    public xtech.selfomat.Api.BoolSettingOrBuilder getPrinterEnabledOrBuilder() {
+      return printerEnabled_ == null ? xtech.selfomat.Api.BoolSetting.getDefaultInstance() : printerEnabled_;
     }
 
     public static final int FLASH_ENABLED_FIELD_NUMBER = 2;
-    private boolean flashEnabled_;
+    private xtech.selfomat.Api.BoolSetting flashEnabled_;
     /**
-     * <code>required bool flash_enabled = 2;</code>
+     * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
      */
     public boolean hasFlashEnabled() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required bool flash_enabled = 2;</code>
+     * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
      */
-    public boolean getFlashEnabled() {
-      return flashEnabled_;
+    public xtech.selfomat.Api.BoolSetting getFlashEnabled() {
+      return flashEnabled_ == null ? xtech.selfomat.Api.BoolSetting.getDefaultInstance() : flashEnabled_;
+    }
+    /**
+     * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
+     */
+    public xtech.selfomat.Api.BoolSettingOrBuilder getFlashEnabledOrBuilder() {
+      return flashEnabled_ == null ? xtech.selfomat.Api.BoolSetting.getDefaultInstance() : flashEnabled_;
     }
 
     public static final int FLASH_BRIGHTNESS_FIELD_NUMBER = 3;
-    private float flashBrightness_;
+    private xtech.selfomat.Api.FloatSetting flashBrightness_;
     /**
-     * <code>required float flash_brightness = 3;</code>
+     * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
      */
     public boolean hasFlashBrightness() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required float flash_brightness = 3;</code>
+     * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
      */
-    public float getFlashBrightness() {
-      return flashBrightness_;
+    public xtech.selfomat.Api.FloatSetting getFlashBrightness() {
+      return flashBrightness_ == null ? xtech.selfomat.Api.FloatSetting.getDefaultInstance() : flashBrightness_;
+    }
+    /**
+     * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
+     */
+    public xtech.selfomat.Api.FloatSettingOrBuilder getFlashBrightnessOrBuilder() {
+      return flashBrightness_ == null ? xtech.selfomat.Api.FloatSetting.getDefaultInstance() : flashBrightness_;
     }
 
     public static final int FLASH_FADE_FIELD_NUMBER = 4;
-    private float flashFade_;
+    private xtech.selfomat.Api.FloatSetting flashFade_;
     /**
-     * <code>required float flash_fade = 4;</code>
+     * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
      */
     public boolean hasFlashFade() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required float flash_fade = 4;</code>
+     * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
      */
-    public float getFlashFade() {
-      return flashFade_;
+    public xtech.selfomat.Api.FloatSetting getFlashFade() {
+      return flashFade_ == null ? xtech.selfomat.Api.FloatSetting.getDefaultInstance() : flashFade_;
+    }
+    /**
+     * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
+     */
+    public xtech.selfomat.Api.FloatSettingOrBuilder getFlashFadeOrBuilder() {
+      return flashFade_ == null ? xtech.selfomat.Api.FloatSetting.getDefaultInstance() : flashFade_;
     }
 
     public static final int FLASH_DELAY_MICROS_FIELD_NUMBER = 5;
-    private long flashDelayMicros_;
+    private xtech.selfomat.Api.IntSetting flashDelayMicros_;
     /**
-     * <code>required uint64 flash_delay_micros = 5;</code>
+     * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
      */
     public boolean hasFlashDelayMicros() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>required uint64 flash_delay_micros = 5;</code>
+     * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
      */
-    public long getFlashDelayMicros() {
-      return flashDelayMicros_;
+    public xtech.selfomat.Api.IntSetting getFlashDelayMicros() {
+      return flashDelayMicros_ == null ? xtech.selfomat.Api.IntSetting.getDefaultInstance() : flashDelayMicros_;
+    }
+    /**
+     * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
+     */
+    public xtech.selfomat.Api.IntSettingOrBuilder getFlashDelayMicrosOrBuilder() {
+      return flashDelayMicros_ == null ? xtech.selfomat.Api.IntSetting.getDefaultInstance() : flashDelayMicros_;
     }
 
     public static final int FLASH_DURATION_MICROS_FIELD_NUMBER = 6;
-    private long flashDurationMicros_;
+    private xtech.selfomat.Api.IntSetting flashDurationMicros_;
     /**
-     * <code>required uint64 flash_duration_micros = 6;</code>
+     * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
      */
     public boolean hasFlashDurationMicros() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>required uint64 flash_duration_micros = 6;</code>
+     * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
      */
-    public long getFlashDurationMicros() {
-      return flashDurationMicros_;
+    public xtech.selfomat.Api.IntSetting getFlashDurationMicros() {
+      return flashDurationMicros_ == null ? xtech.selfomat.Api.IntSetting.getDefaultInstance() : flashDurationMicros_;
+    }
+    /**
+     * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
+     */
+    public xtech.selfomat.Api.IntSettingOrBuilder getFlashDurationMicrosOrBuilder() {
+      return flashDurationMicros_ == null ? xtech.selfomat.Api.IntSetting.getDefaultInstance() : flashDurationMicros_;
     }
 
     public static final int TEMPLATE_ENABLED_FIELD_NUMBER = 7;
-    private boolean templateEnabled_;
+    private xtech.selfomat.Api.BoolSetting templateEnabled_;
     /**
-     * <code>required bool template_enabled = 7;</code>
+     * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
      */
     public boolean hasTemplateEnabled() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>required bool template_enabled = 7;</code>
+     * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
      */
-    public boolean getTemplateEnabled() {
-      return templateEnabled_;
+    public xtech.selfomat.Api.BoolSetting getTemplateEnabled() {
+      return templateEnabled_ == null ? xtech.selfomat.Api.BoolSetting.getDefaultInstance() : templateEnabled_;
+    }
+    /**
+     * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
+     */
+    public xtech.selfomat.Api.BoolSettingOrBuilder getTemplateEnabledOrBuilder() {
+      return templateEnabled_ == null ? xtech.selfomat.Api.BoolSetting.getDefaultInstance() : templateEnabled_;
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3531,76 +8892,103 @@ public final class Api {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!getPrinterEnabled().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getFlashEnabled().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getFlashBrightness().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getFlashFade().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getFlashDelayMicros().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getFlashDurationMicros().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getTemplateEnabled().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeBool(1, printerEnabled_);
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getPrinterEnabled());
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeBool(2, flashEnabled_);
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getFlashEnabled());
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeFloat(3, flashBrightness_);
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, getFlashBrightness());
       }
-      if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeFloat(4, flashFade_);
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, getFlashFade());
       }
-      if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeUInt64(5, flashDelayMicros_);
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, getFlashDelayMicros());
       }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        output.writeUInt64(6, flashDurationMicros_);
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeMessage(6, getFlashDurationMicros());
       }
-      if (((bitField0_ & 0x00000040) != 0)) {
-        output.writeBool(7, templateEnabled_);
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeMessage(7, getTemplateEnabled());
       }
       unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, printerEnabled_);
+          .computeMessageSize(1, getPrinterEnabled());
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, flashEnabled_);
+          .computeMessageSize(2, getFlashEnabled());
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(3, flashBrightness_);
+          .computeMessageSize(3, getFlashBrightness());
       }
-      if (((bitField0_ & 0x00000008) != 0)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(4, flashFade_);
+          .computeMessageSize(4, getFlashFade());
       }
-      if (((bitField0_ & 0x00000010) != 0)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(5, flashDelayMicros_);
+          .computeMessageSize(5, getFlashDelayMicros());
       }
-      if (((bitField0_ & 0x00000020) != 0)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(6, flashDurationMicros_);
+          .computeMessageSize(6, getFlashDurationMicros());
       }
-      if (((bitField0_ & 0x00000040) != 0)) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(7, templateEnabled_);
+          .computeMessageSize(7, getTemplateEnabled());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -3611,45 +8999,44 @@ public final class Api {
       }
       xtech.selfomat.Api.BoothSettings other = (xtech.selfomat.Api.BoothSettings) obj;
 
-      if (hasPrinterEnabled() != other.hasPrinterEnabled()) return false;
+      boolean result = true;
+      result = result && (hasPrinterEnabled() == other.hasPrinterEnabled());
       if (hasPrinterEnabled()) {
-        if (getPrinterEnabled()
-            != other.getPrinterEnabled()) return false;
+        result = result && getPrinterEnabled()
+            .equals(other.getPrinterEnabled());
       }
-      if (hasFlashEnabled() != other.hasFlashEnabled()) return false;
+      result = result && (hasFlashEnabled() == other.hasFlashEnabled());
       if (hasFlashEnabled()) {
-        if (getFlashEnabled()
-            != other.getFlashEnabled()) return false;
+        result = result && getFlashEnabled()
+            .equals(other.getFlashEnabled());
       }
-      if (hasFlashBrightness() != other.hasFlashBrightness()) return false;
+      result = result && (hasFlashBrightness() == other.hasFlashBrightness());
       if (hasFlashBrightness()) {
-        if (java.lang.Float.floatToIntBits(getFlashBrightness())
-            != java.lang.Float.floatToIntBits(
-                other.getFlashBrightness())) return false;
+        result = result && getFlashBrightness()
+            .equals(other.getFlashBrightness());
       }
-      if (hasFlashFade() != other.hasFlashFade()) return false;
+      result = result && (hasFlashFade() == other.hasFlashFade());
       if (hasFlashFade()) {
-        if (java.lang.Float.floatToIntBits(getFlashFade())
-            != java.lang.Float.floatToIntBits(
-                other.getFlashFade())) return false;
+        result = result && getFlashFade()
+            .equals(other.getFlashFade());
       }
-      if (hasFlashDelayMicros() != other.hasFlashDelayMicros()) return false;
+      result = result && (hasFlashDelayMicros() == other.hasFlashDelayMicros());
       if (hasFlashDelayMicros()) {
-        if (getFlashDelayMicros()
-            != other.getFlashDelayMicros()) return false;
+        result = result && getFlashDelayMicros()
+            .equals(other.getFlashDelayMicros());
       }
-      if (hasFlashDurationMicros() != other.hasFlashDurationMicros()) return false;
+      result = result && (hasFlashDurationMicros() == other.hasFlashDurationMicros());
       if (hasFlashDurationMicros()) {
-        if (getFlashDurationMicros()
-            != other.getFlashDurationMicros()) return false;
+        result = result && getFlashDurationMicros()
+            .equals(other.getFlashDurationMicros());
       }
-      if (hasTemplateEnabled() != other.hasTemplateEnabled()) return false;
+      result = result && (hasTemplateEnabled() == other.hasTemplateEnabled());
       if (hasTemplateEnabled()) {
-        if (getTemplateEnabled()
-            != other.getTemplateEnabled()) return false;
+        result = result && getTemplateEnabled()
+            .equals(other.getTemplateEnabled());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -3658,58 +9045,40 @@ public final class Api {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasPrinterEnabled()) {
         hash = (37 * hash) + PRINTER_ENABLED_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getPrinterEnabled());
+        hash = (53 * hash) + getPrinterEnabled().hashCode();
       }
       if (hasFlashEnabled()) {
         hash = (37 * hash) + FLASH_ENABLED_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getFlashEnabled());
+        hash = (53 * hash) + getFlashEnabled().hashCode();
       }
       if (hasFlashBrightness()) {
         hash = (37 * hash) + FLASH_BRIGHTNESS_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getFlashBrightness());
+        hash = (53 * hash) + getFlashBrightness().hashCode();
       }
       if (hasFlashFade()) {
         hash = (37 * hash) + FLASH_FADE_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getFlashFade());
+        hash = (53 * hash) + getFlashFade().hashCode();
       }
       if (hasFlashDelayMicros()) {
         hash = (37 * hash) + FLASH_DELAY_MICROS_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getFlashDelayMicros());
+        hash = (53 * hash) + getFlashDelayMicros().hashCode();
       }
       if (hasFlashDurationMicros()) {
         hash = (37 * hash) + FLASH_DURATION_MICROS_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getFlashDurationMicros());
+        hash = (53 * hash) + getFlashDurationMicros().hashCode();
       }
       if (hasTemplateEnabled()) {
         hash = (37 * hash) + TEMPLATE_ENABLED_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getTemplateEnabled());
+        hash = (53 * hash) + getTemplateEnabled().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static xtech.selfomat.Api.BoothSettings parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static xtech.selfomat.Api.BoothSettings parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static xtech.selfomat.Api.BoothSettings parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3769,7 +9138,6 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3777,7 +9145,6 @@ public final class Api {
     public static Builder newBuilder(xtech.selfomat.Api.BoothSettings prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3801,7 +9168,6 @@ public final class Api {
         return xtech.selfomat.Api.internal_static_xtech_selfomat_BoothSettings_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return xtech.selfomat.Api.internal_static_xtech_selfomat_BoothSettings_fieldAccessorTable
@@ -3822,40 +9188,71 @@ public final class Api {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getPrinterEnabledFieldBuilder();
+          getFlashEnabledFieldBuilder();
+          getFlashBrightnessFieldBuilder();
+          getFlashFadeFieldBuilder();
+          getFlashDelayMicrosFieldBuilder();
+          getFlashDurationMicrosFieldBuilder();
+          getTemplateEnabledFieldBuilder();
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
-        printerEnabled_ = false;
+        if (printerEnabledBuilder_ == null) {
+          printerEnabled_ = null;
+        } else {
+          printerEnabledBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000001);
-        flashEnabled_ = false;
+        if (flashEnabledBuilder_ == null) {
+          flashEnabled_ = null;
+        } else {
+          flashEnabledBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000002);
-        flashBrightness_ = 0F;
+        if (flashBrightnessBuilder_ == null) {
+          flashBrightness_ = null;
+        } else {
+          flashBrightnessBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000004);
-        flashFade_ = 0F;
+        if (flashFadeBuilder_ == null) {
+          flashFade_ = null;
+        } else {
+          flashFadeBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000008);
-        flashDelayMicros_ = 0L;
+        if (flashDelayMicrosBuilder_ == null) {
+          flashDelayMicros_ = null;
+        } else {
+          flashDelayMicrosBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000010);
-        flashDurationMicros_ = 0L;
+        if (flashDurationMicrosBuilder_ == null) {
+          flashDurationMicros_ = null;
+        } else {
+          flashDurationMicrosBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000020);
-        templateEnabled_ = false;
+        if (templateEnabledBuilder_ == null) {
+          templateEnabled_ = null;
+        } else {
+          templateEnabledBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return xtech.selfomat.Api.internal_static_xtech_selfomat_BoothSettings_descriptor;
       }
 
-      @java.lang.Override
       public xtech.selfomat.Api.BoothSettings getDefaultInstanceForType() {
         return xtech.selfomat.Api.BoothSettings.getDefaultInstance();
       }
 
-      @java.lang.Override
       public xtech.selfomat.Api.BoothSettings build() {
         xtech.selfomat.Api.BoothSettings result = buildPartial();
         if (!result.isInitialized()) {
@@ -3864,77 +9261,97 @@ public final class Api {
         return result;
       }
 
-      @java.lang.Override
       public xtech.selfomat.Api.BoothSettings buildPartial() {
         xtech.selfomat.Api.BoothSettings result = new xtech.selfomat.Api.BoothSettings(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.printerEnabled_ = printerEnabled_;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.flashEnabled_ = flashEnabled_;
+        if (printerEnabledBuilder_ == null) {
+          result.printerEnabled_ = printerEnabled_;
+        } else {
+          result.printerEnabled_ = printerEnabledBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.flashBrightness_ = flashBrightness_;
+        if (flashEnabledBuilder_ == null) {
+          result.flashEnabled_ = flashEnabled_;
+        } else {
+          result.flashEnabled_ = flashEnabledBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.flashFade_ = flashFade_;
+        if (flashBrightnessBuilder_ == null) {
+          result.flashBrightness_ = flashBrightness_;
+        } else {
+          result.flashBrightness_ = flashBrightnessBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.flashDelayMicros_ = flashDelayMicros_;
+        if (flashFadeBuilder_ == null) {
+          result.flashFade_ = flashFade_;
+        } else {
+          result.flashFade_ = flashFadeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.flashDurationMicros_ = flashDurationMicros_;
+        if (flashDelayMicrosBuilder_ == null) {
+          result.flashDelayMicros_ = flashDelayMicros_;
+        } else {
+          result.flashDelayMicros_ = flashDelayMicrosBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.templateEnabled_ = templateEnabled_;
+        if (flashDurationMicrosBuilder_ == null) {
+          result.flashDurationMicros_ = flashDurationMicros_;
+        } else {
+          result.flashDurationMicros_ = flashDurationMicrosBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
+        }
+        if (templateEnabledBuilder_ == null) {
+          result.templateEnabled_ = templateEnabled_;
+        } else {
+          result.templateEnabled_ = templateEnabledBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
+          Object value) {
+        return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof xtech.selfomat.Api.BoothSettings) {
           return mergeFrom((xtech.selfomat.Api.BoothSettings)other);
@@ -3947,32 +9364,31 @@ public final class Api {
       public Builder mergeFrom(xtech.selfomat.Api.BoothSettings other) {
         if (other == xtech.selfomat.Api.BoothSettings.getDefaultInstance()) return this;
         if (other.hasPrinterEnabled()) {
-          setPrinterEnabled(other.getPrinterEnabled());
+          mergePrinterEnabled(other.getPrinterEnabled());
         }
         if (other.hasFlashEnabled()) {
-          setFlashEnabled(other.getFlashEnabled());
+          mergeFlashEnabled(other.getFlashEnabled());
         }
         if (other.hasFlashBrightness()) {
-          setFlashBrightness(other.getFlashBrightness());
+          mergeFlashBrightness(other.getFlashBrightness());
         }
         if (other.hasFlashFade()) {
-          setFlashFade(other.getFlashFade());
+          mergeFlashFade(other.getFlashFade());
         }
         if (other.hasFlashDelayMicros()) {
-          setFlashDelayMicros(other.getFlashDelayMicros());
+          mergeFlashDelayMicros(other.getFlashDelayMicros());
         }
         if (other.hasFlashDurationMicros()) {
-          setFlashDurationMicros(other.getFlashDurationMicros());
+          mergeFlashDurationMicros(other.getFlashDurationMicros());
         }
         if (other.hasTemplateEnabled()) {
-          setTemplateEnabled(other.getTemplateEnabled());
+          mergeTemplateEnabled(other.getTemplateEnabled());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasPrinterEnabled()) {
           return false;
@@ -3995,10 +9411,30 @@ public final class Api {
         if (!hasTemplateEnabled()) {
           return false;
         }
+        if (!getPrinterEnabled().isInitialized()) {
+          return false;
+        }
+        if (!getFlashEnabled().isInitialized()) {
+          return false;
+        }
+        if (!getFlashBrightness().isInitialized()) {
+          return false;
+        }
+        if (!getFlashFade().isInitialized()) {
+          return false;
+        }
+        if (!getFlashDelayMicros().isInitialized()) {
+          return false;
+        }
+        if (!getFlashDurationMicros().isInitialized()) {
+          return false;
+        }
+        if (!getTemplateEnabled().isInitialized()) {
+          return false;
+        }
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4018,236 +9454,836 @@ public final class Api {
       }
       private int bitField0_;
 
-      private boolean printerEnabled_ ;
+      private xtech.selfomat.Api.BoolSetting printerEnabled_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.BoolSetting, xtech.selfomat.Api.BoolSetting.Builder, xtech.selfomat.Api.BoolSettingOrBuilder> printerEnabledBuilder_;
       /**
-       * <code>required bool printer_enabled = 1;</code>
+       * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
        */
       public boolean hasPrinterEnabled() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required bool printer_enabled = 1;</code>
+       * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
        */
-      public boolean getPrinterEnabled() {
-        return printerEnabled_;
+      public xtech.selfomat.Api.BoolSetting getPrinterEnabled() {
+        if (printerEnabledBuilder_ == null) {
+          return printerEnabled_ == null ? xtech.selfomat.Api.BoolSetting.getDefaultInstance() : printerEnabled_;
+        } else {
+          return printerEnabledBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required bool printer_enabled = 1;</code>
+       * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
        */
-      public Builder setPrinterEnabled(boolean value) {
+      public Builder setPrinterEnabled(xtech.selfomat.Api.BoolSetting value) {
+        if (printerEnabledBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          printerEnabled_ = value;
+          onChanged();
+        } else {
+          printerEnabledBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000001;
-        printerEnabled_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required bool printer_enabled = 1;</code>
+       * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
+       */
+      public Builder setPrinterEnabled(
+          xtech.selfomat.Api.BoolSetting.Builder builderForValue) {
+        if (printerEnabledBuilder_ == null) {
+          printerEnabled_ = builderForValue.build();
+          onChanged();
+        } else {
+          printerEnabledBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
+       */
+      public Builder mergePrinterEnabled(xtech.selfomat.Api.BoolSetting value) {
+        if (printerEnabledBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              printerEnabled_ != null &&
+              printerEnabled_ != xtech.selfomat.Api.BoolSetting.getDefaultInstance()) {
+            printerEnabled_ =
+              xtech.selfomat.Api.BoolSetting.newBuilder(printerEnabled_).mergeFrom(value).buildPartial();
+          } else {
+            printerEnabled_ = value;
+          }
+          onChanged();
+        } else {
+          printerEnabledBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
        */
       public Builder clearPrinterEnabled() {
+        if (printerEnabledBuilder_ == null) {
+          printerEnabled_ = null;
+          onChanged();
+        } else {
+          printerEnabledBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000001);
-        printerEnabled_ = false;
-        onChanged();
         return this;
       }
-
-      private boolean flashEnabled_ ;
       /**
-       * <code>required bool flash_enabled = 2;</code>
+       * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
+       */
+      public xtech.selfomat.Api.BoolSetting.Builder getPrinterEnabledBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getPrinterEnabledFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
+       */
+      public xtech.selfomat.Api.BoolSettingOrBuilder getPrinterEnabledOrBuilder() {
+        if (printerEnabledBuilder_ != null) {
+          return printerEnabledBuilder_.getMessageOrBuilder();
+        } else {
+          return printerEnabled_ == null ?
+              xtech.selfomat.Api.BoolSetting.getDefaultInstance() : printerEnabled_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting printer_enabled = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.BoolSetting, xtech.selfomat.Api.BoolSetting.Builder, xtech.selfomat.Api.BoolSettingOrBuilder> 
+          getPrinterEnabledFieldBuilder() {
+        if (printerEnabledBuilder_ == null) {
+          printerEnabledBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.BoolSetting, xtech.selfomat.Api.BoolSetting.Builder, xtech.selfomat.Api.BoolSettingOrBuilder>(
+                  getPrinterEnabled(),
+                  getParentForChildren(),
+                  isClean());
+          printerEnabled_ = null;
+        }
+        return printerEnabledBuilder_;
+      }
+
+      private xtech.selfomat.Api.BoolSetting flashEnabled_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.BoolSetting, xtech.selfomat.Api.BoolSetting.Builder, xtech.selfomat.Api.BoolSettingOrBuilder> flashEnabledBuilder_;
+      /**
+       * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
        */
       public boolean hasFlashEnabled() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required bool flash_enabled = 2;</code>
+       * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
        */
-      public boolean getFlashEnabled() {
-        return flashEnabled_;
+      public xtech.selfomat.Api.BoolSetting getFlashEnabled() {
+        if (flashEnabledBuilder_ == null) {
+          return flashEnabled_ == null ? xtech.selfomat.Api.BoolSetting.getDefaultInstance() : flashEnabled_;
+        } else {
+          return flashEnabledBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required bool flash_enabled = 2;</code>
+       * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
        */
-      public Builder setFlashEnabled(boolean value) {
+      public Builder setFlashEnabled(xtech.selfomat.Api.BoolSetting value) {
+        if (flashEnabledBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          flashEnabled_ = value;
+          onChanged();
+        } else {
+          flashEnabledBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000002;
-        flashEnabled_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required bool flash_enabled = 2;</code>
+       * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
+       */
+      public Builder setFlashEnabled(
+          xtech.selfomat.Api.BoolSetting.Builder builderForValue) {
+        if (flashEnabledBuilder_ == null) {
+          flashEnabled_ = builderForValue.build();
+          onChanged();
+        } else {
+          flashEnabledBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
+       */
+      public Builder mergeFlashEnabled(xtech.selfomat.Api.BoolSetting value) {
+        if (flashEnabledBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              flashEnabled_ != null &&
+              flashEnabled_ != xtech.selfomat.Api.BoolSetting.getDefaultInstance()) {
+            flashEnabled_ =
+              xtech.selfomat.Api.BoolSetting.newBuilder(flashEnabled_).mergeFrom(value).buildPartial();
+          } else {
+            flashEnabled_ = value;
+          }
+          onChanged();
+        } else {
+          flashEnabledBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
        */
       public Builder clearFlashEnabled() {
+        if (flashEnabledBuilder_ == null) {
+          flashEnabled_ = null;
+          onChanged();
+        } else {
+          flashEnabledBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000002);
-        flashEnabled_ = false;
-        onChanged();
         return this;
       }
-
-      private float flashBrightness_ ;
       /**
-       * <code>required float flash_brightness = 3;</code>
+       * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
+       */
+      public xtech.selfomat.Api.BoolSetting.Builder getFlashEnabledBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getFlashEnabledFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
+       */
+      public xtech.selfomat.Api.BoolSettingOrBuilder getFlashEnabledOrBuilder() {
+        if (flashEnabledBuilder_ != null) {
+          return flashEnabledBuilder_.getMessageOrBuilder();
+        } else {
+          return flashEnabled_ == null ?
+              xtech.selfomat.Api.BoolSetting.getDefaultInstance() : flashEnabled_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting flash_enabled = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.BoolSetting, xtech.selfomat.Api.BoolSetting.Builder, xtech.selfomat.Api.BoolSettingOrBuilder> 
+          getFlashEnabledFieldBuilder() {
+        if (flashEnabledBuilder_ == null) {
+          flashEnabledBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.BoolSetting, xtech.selfomat.Api.BoolSetting.Builder, xtech.selfomat.Api.BoolSettingOrBuilder>(
+                  getFlashEnabled(),
+                  getParentForChildren(),
+                  isClean());
+          flashEnabled_ = null;
+        }
+        return flashEnabledBuilder_;
+      }
+
+      private xtech.selfomat.Api.FloatSetting flashBrightness_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.FloatSetting, xtech.selfomat.Api.FloatSetting.Builder, xtech.selfomat.Api.FloatSettingOrBuilder> flashBrightnessBuilder_;
+      /**
+       * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
        */
       public boolean hasFlashBrightness() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required float flash_brightness = 3;</code>
+       * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
        */
-      public float getFlashBrightness() {
-        return flashBrightness_;
+      public xtech.selfomat.Api.FloatSetting getFlashBrightness() {
+        if (flashBrightnessBuilder_ == null) {
+          return flashBrightness_ == null ? xtech.selfomat.Api.FloatSetting.getDefaultInstance() : flashBrightness_;
+        } else {
+          return flashBrightnessBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required float flash_brightness = 3;</code>
+       * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
        */
-      public Builder setFlashBrightness(float value) {
+      public Builder setFlashBrightness(xtech.selfomat.Api.FloatSetting value) {
+        if (flashBrightnessBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          flashBrightness_ = value;
+          onChanged();
+        } else {
+          flashBrightnessBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000004;
-        flashBrightness_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required float flash_brightness = 3;</code>
+       * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
+       */
+      public Builder setFlashBrightness(
+          xtech.selfomat.Api.FloatSetting.Builder builderForValue) {
+        if (flashBrightnessBuilder_ == null) {
+          flashBrightness_ = builderForValue.build();
+          onChanged();
+        } else {
+          flashBrightnessBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
+       */
+      public Builder mergeFlashBrightness(xtech.selfomat.Api.FloatSetting value) {
+        if (flashBrightnessBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              flashBrightness_ != null &&
+              flashBrightness_ != xtech.selfomat.Api.FloatSetting.getDefaultInstance()) {
+            flashBrightness_ =
+              xtech.selfomat.Api.FloatSetting.newBuilder(flashBrightness_).mergeFrom(value).buildPartial();
+          } else {
+            flashBrightness_ = value;
+          }
+          onChanged();
+        } else {
+          flashBrightnessBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
        */
       public Builder clearFlashBrightness() {
+        if (flashBrightnessBuilder_ == null) {
+          flashBrightness_ = null;
+          onChanged();
+        } else {
+          flashBrightnessBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000004);
-        flashBrightness_ = 0F;
-        onChanged();
         return this;
       }
-
-      private float flashFade_ ;
       /**
-       * <code>required float flash_fade = 4;</code>
+       * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
+       */
+      public xtech.selfomat.Api.FloatSetting.Builder getFlashBrightnessBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getFlashBrightnessFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
+       */
+      public xtech.selfomat.Api.FloatSettingOrBuilder getFlashBrightnessOrBuilder() {
+        if (flashBrightnessBuilder_ != null) {
+          return flashBrightnessBuilder_.getMessageOrBuilder();
+        } else {
+          return flashBrightness_ == null ?
+              xtech.selfomat.Api.FloatSetting.getDefaultInstance() : flashBrightness_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.FloatSetting flash_brightness = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.FloatSetting, xtech.selfomat.Api.FloatSetting.Builder, xtech.selfomat.Api.FloatSettingOrBuilder> 
+          getFlashBrightnessFieldBuilder() {
+        if (flashBrightnessBuilder_ == null) {
+          flashBrightnessBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.FloatSetting, xtech.selfomat.Api.FloatSetting.Builder, xtech.selfomat.Api.FloatSettingOrBuilder>(
+                  getFlashBrightness(),
+                  getParentForChildren(),
+                  isClean());
+          flashBrightness_ = null;
+        }
+        return flashBrightnessBuilder_;
+      }
+
+      private xtech.selfomat.Api.FloatSetting flashFade_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.FloatSetting, xtech.selfomat.Api.FloatSetting.Builder, xtech.selfomat.Api.FloatSettingOrBuilder> flashFadeBuilder_;
+      /**
+       * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
        */
       public boolean hasFlashFade() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required float flash_fade = 4;</code>
+       * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
        */
-      public float getFlashFade() {
-        return flashFade_;
+      public xtech.selfomat.Api.FloatSetting getFlashFade() {
+        if (flashFadeBuilder_ == null) {
+          return flashFade_ == null ? xtech.selfomat.Api.FloatSetting.getDefaultInstance() : flashFade_;
+        } else {
+          return flashFadeBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required float flash_fade = 4;</code>
+       * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
        */
-      public Builder setFlashFade(float value) {
+      public Builder setFlashFade(xtech.selfomat.Api.FloatSetting value) {
+        if (flashFadeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          flashFade_ = value;
+          onChanged();
+        } else {
+          flashFadeBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000008;
-        flashFade_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required float flash_fade = 4;</code>
+       * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
+       */
+      public Builder setFlashFade(
+          xtech.selfomat.Api.FloatSetting.Builder builderForValue) {
+        if (flashFadeBuilder_ == null) {
+          flashFade_ = builderForValue.build();
+          onChanged();
+        } else {
+          flashFadeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
+       */
+      public Builder mergeFlashFade(xtech.selfomat.Api.FloatSetting value) {
+        if (flashFadeBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              flashFade_ != null &&
+              flashFade_ != xtech.selfomat.Api.FloatSetting.getDefaultInstance()) {
+            flashFade_ =
+              xtech.selfomat.Api.FloatSetting.newBuilder(flashFade_).mergeFrom(value).buildPartial();
+          } else {
+            flashFade_ = value;
+          }
+          onChanged();
+        } else {
+          flashFadeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
        */
       public Builder clearFlashFade() {
+        if (flashFadeBuilder_ == null) {
+          flashFade_ = null;
+          onChanged();
+        } else {
+          flashFadeBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000008);
-        flashFade_ = 0F;
-        onChanged();
         return this;
       }
-
-      private long flashDelayMicros_ ;
       /**
-       * <code>required uint64 flash_delay_micros = 5;</code>
+       * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
+       */
+      public xtech.selfomat.Api.FloatSetting.Builder getFlashFadeBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getFlashFadeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
+       */
+      public xtech.selfomat.Api.FloatSettingOrBuilder getFlashFadeOrBuilder() {
+        if (flashFadeBuilder_ != null) {
+          return flashFadeBuilder_.getMessageOrBuilder();
+        } else {
+          return flashFade_ == null ?
+              xtech.selfomat.Api.FloatSetting.getDefaultInstance() : flashFade_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.FloatSetting flash_fade = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.FloatSetting, xtech.selfomat.Api.FloatSetting.Builder, xtech.selfomat.Api.FloatSettingOrBuilder> 
+          getFlashFadeFieldBuilder() {
+        if (flashFadeBuilder_ == null) {
+          flashFadeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.FloatSetting, xtech.selfomat.Api.FloatSetting.Builder, xtech.selfomat.Api.FloatSettingOrBuilder>(
+                  getFlashFade(),
+                  getParentForChildren(),
+                  isClean());
+          flashFade_ = null;
+        }
+        return flashFadeBuilder_;
+      }
+
+      private xtech.selfomat.Api.IntSetting flashDelayMicros_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.IntSetting, xtech.selfomat.Api.IntSetting.Builder, xtech.selfomat.Api.IntSettingOrBuilder> flashDelayMicrosBuilder_;
+      /**
+       * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
        */
       public boolean hasFlashDelayMicros() {
-        return ((bitField0_ & 0x00000010) != 0);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required uint64 flash_delay_micros = 5;</code>
+       * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
        */
-      public long getFlashDelayMicros() {
-        return flashDelayMicros_;
+      public xtech.selfomat.Api.IntSetting getFlashDelayMicros() {
+        if (flashDelayMicrosBuilder_ == null) {
+          return flashDelayMicros_ == null ? xtech.selfomat.Api.IntSetting.getDefaultInstance() : flashDelayMicros_;
+        } else {
+          return flashDelayMicrosBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required uint64 flash_delay_micros = 5;</code>
+       * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
        */
-      public Builder setFlashDelayMicros(long value) {
+      public Builder setFlashDelayMicros(xtech.selfomat.Api.IntSetting value) {
+        if (flashDelayMicrosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          flashDelayMicros_ = value;
+          onChanged();
+        } else {
+          flashDelayMicrosBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000010;
-        flashDelayMicros_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required uint64 flash_delay_micros = 5;</code>
+       * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
+       */
+      public Builder setFlashDelayMicros(
+          xtech.selfomat.Api.IntSetting.Builder builderForValue) {
+        if (flashDelayMicrosBuilder_ == null) {
+          flashDelayMicros_ = builderForValue.build();
+          onChanged();
+        } else {
+          flashDelayMicrosBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
+       */
+      public Builder mergeFlashDelayMicros(xtech.selfomat.Api.IntSetting value) {
+        if (flashDelayMicrosBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              flashDelayMicros_ != null &&
+              flashDelayMicros_ != xtech.selfomat.Api.IntSetting.getDefaultInstance()) {
+            flashDelayMicros_ =
+              xtech.selfomat.Api.IntSetting.newBuilder(flashDelayMicros_).mergeFrom(value).buildPartial();
+          } else {
+            flashDelayMicros_ = value;
+          }
+          onChanged();
+        } else {
+          flashDelayMicrosBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
        */
       public Builder clearFlashDelayMicros() {
+        if (flashDelayMicrosBuilder_ == null) {
+          flashDelayMicros_ = null;
+          onChanged();
+        } else {
+          flashDelayMicrosBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000010);
-        flashDelayMicros_ = 0L;
-        onChanged();
         return this;
       }
-
-      private long flashDurationMicros_ ;
       /**
-       * <code>required uint64 flash_duration_micros = 6;</code>
+       * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
+       */
+      public xtech.selfomat.Api.IntSetting.Builder getFlashDelayMicrosBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getFlashDelayMicrosFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
+       */
+      public xtech.selfomat.Api.IntSettingOrBuilder getFlashDelayMicrosOrBuilder() {
+        if (flashDelayMicrosBuilder_ != null) {
+          return flashDelayMicrosBuilder_.getMessageOrBuilder();
+        } else {
+          return flashDelayMicros_ == null ?
+              xtech.selfomat.Api.IntSetting.getDefaultInstance() : flashDelayMicros_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.IntSetting flash_delay_micros = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.IntSetting, xtech.selfomat.Api.IntSetting.Builder, xtech.selfomat.Api.IntSettingOrBuilder> 
+          getFlashDelayMicrosFieldBuilder() {
+        if (flashDelayMicrosBuilder_ == null) {
+          flashDelayMicrosBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.IntSetting, xtech.selfomat.Api.IntSetting.Builder, xtech.selfomat.Api.IntSettingOrBuilder>(
+                  getFlashDelayMicros(),
+                  getParentForChildren(),
+                  isClean());
+          flashDelayMicros_ = null;
+        }
+        return flashDelayMicrosBuilder_;
+      }
+
+      private xtech.selfomat.Api.IntSetting flashDurationMicros_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.IntSetting, xtech.selfomat.Api.IntSetting.Builder, xtech.selfomat.Api.IntSettingOrBuilder> flashDurationMicrosBuilder_;
+      /**
+       * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
        */
       public boolean hasFlashDurationMicros() {
-        return ((bitField0_ & 0x00000020) != 0);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>required uint64 flash_duration_micros = 6;</code>
+       * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
        */
-      public long getFlashDurationMicros() {
-        return flashDurationMicros_;
+      public xtech.selfomat.Api.IntSetting getFlashDurationMicros() {
+        if (flashDurationMicrosBuilder_ == null) {
+          return flashDurationMicros_ == null ? xtech.selfomat.Api.IntSetting.getDefaultInstance() : flashDurationMicros_;
+        } else {
+          return flashDurationMicrosBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required uint64 flash_duration_micros = 6;</code>
+       * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
        */
-      public Builder setFlashDurationMicros(long value) {
+      public Builder setFlashDurationMicros(xtech.selfomat.Api.IntSetting value) {
+        if (flashDurationMicrosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          flashDurationMicros_ = value;
+          onChanged();
+        } else {
+          flashDurationMicrosBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000020;
-        flashDurationMicros_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required uint64 flash_duration_micros = 6;</code>
+       * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
+       */
+      public Builder setFlashDurationMicros(
+          xtech.selfomat.Api.IntSetting.Builder builderForValue) {
+        if (flashDurationMicrosBuilder_ == null) {
+          flashDurationMicros_ = builderForValue.build();
+          onChanged();
+        } else {
+          flashDurationMicrosBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
+       */
+      public Builder mergeFlashDurationMicros(xtech.selfomat.Api.IntSetting value) {
+        if (flashDurationMicrosBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020) &&
+              flashDurationMicros_ != null &&
+              flashDurationMicros_ != xtech.selfomat.Api.IntSetting.getDefaultInstance()) {
+            flashDurationMicros_ =
+              xtech.selfomat.Api.IntSetting.newBuilder(flashDurationMicros_).mergeFrom(value).buildPartial();
+          } else {
+            flashDurationMicros_ = value;
+          }
+          onChanged();
+        } else {
+          flashDurationMicrosBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
        */
       public Builder clearFlashDurationMicros() {
+        if (flashDurationMicrosBuilder_ == null) {
+          flashDurationMicros_ = null;
+          onChanged();
+        } else {
+          flashDurationMicrosBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000020);
-        flashDurationMicros_ = 0L;
-        onChanged();
         return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
+       */
+      public xtech.selfomat.Api.IntSetting.Builder getFlashDurationMicrosBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getFlashDurationMicrosFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
+       */
+      public xtech.selfomat.Api.IntSettingOrBuilder getFlashDurationMicrosOrBuilder() {
+        if (flashDurationMicrosBuilder_ != null) {
+          return flashDurationMicrosBuilder_.getMessageOrBuilder();
+        } else {
+          return flashDurationMicros_ == null ?
+              xtech.selfomat.Api.IntSetting.getDefaultInstance() : flashDurationMicros_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.IntSetting flash_duration_micros = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.IntSetting, xtech.selfomat.Api.IntSetting.Builder, xtech.selfomat.Api.IntSettingOrBuilder> 
+          getFlashDurationMicrosFieldBuilder() {
+        if (flashDurationMicrosBuilder_ == null) {
+          flashDurationMicrosBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.IntSetting, xtech.selfomat.Api.IntSetting.Builder, xtech.selfomat.Api.IntSettingOrBuilder>(
+                  getFlashDurationMicros(),
+                  getParentForChildren(),
+                  isClean());
+          flashDurationMicros_ = null;
+        }
+        return flashDurationMicrosBuilder_;
       }
 
-      private boolean templateEnabled_ ;
+      private xtech.selfomat.Api.BoolSetting templateEnabled_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.BoolSetting, xtech.selfomat.Api.BoolSetting.Builder, xtech.selfomat.Api.BoolSettingOrBuilder> templateEnabledBuilder_;
       /**
-       * <code>required bool template_enabled = 7;</code>
+       * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
        */
       public boolean hasTemplateEnabled() {
-        return ((bitField0_ & 0x00000040) != 0);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>required bool template_enabled = 7;</code>
+       * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
        */
-      public boolean getTemplateEnabled() {
-        return templateEnabled_;
+      public xtech.selfomat.Api.BoolSetting getTemplateEnabled() {
+        if (templateEnabledBuilder_ == null) {
+          return templateEnabled_ == null ? xtech.selfomat.Api.BoolSetting.getDefaultInstance() : templateEnabled_;
+        } else {
+          return templateEnabledBuilder_.getMessage();
+        }
       }
       /**
-       * <code>required bool template_enabled = 7;</code>
+       * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
        */
-      public Builder setTemplateEnabled(boolean value) {
+      public Builder setTemplateEnabled(xtech.selfomat.Api.BoolSetting value) {
+        if (templateEnabledBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          templateEnabled_ = value;
+          onChanged();
+        } else {
+          templateEnabledBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000040;
-        templateEnabled_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>required bool template_enabled = 7;</code>
+       * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
+       */
+      public Builder setTemplateEnabled(
+          xtech.selfomat.Api.BoolSetting.Builder builderForValue) {
+        if (templateEnabledBuilder_ == null) {
+          templateEnabled_ = builderForValue.build();
+          onChanged();
+        } else {
+          templateEnabledBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
+       */
+      public Builder mergeTemplateEnabled(xtech.selfomat.Api.BoolSetting value) {
+        if (templateEnabledBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040) &&
+              templateEnabled_ != null &&
+              templateEnabled_ != xtech.selfomat.Api.BoolSetting.getDefaultInstance()) {
+            templateEnabled_ =
+              xtech.selfomat.Api.BoolSetting.newBuilder(templateEnabled_).mergeFrom(value).buildPartial();
+          } else {
+            templateEnabled_ = value;
+          }
+          onChanged();
+        } else {
+          templateEnabledBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
        */
       public Builder clearTemplateEnabled() {
+        if (templateEnabledBuilder_ == null) {
+          templateEnabled_ = null;
+          onChanged();
+        } else {
+          templateEnabledBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000040);
-        templateEnabled_ = false;
-        onChanged();
         return this;
       }
-      @java.lang.Override
+      /**
+       * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
+       */
+      public xtech.selfomat.Api.BoolSetting.Builder getTemplateEnabledBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return getTemplateEnabledFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
+       */
+      public xtech.selfomat.Api.BoolSettingOrBuilder getTemplateEnabledOrBuilder() {
+        if (templateEnabledBuilder_ != null) {
+          return templateEnabledBuilder_.getMessageOrBuilder();
+        } else {
+          return templateEnabled_ == null ?
+              xtech.selfomat.Api.BoolSetting.getDefaultInstance() : templateEnabled_;
+        }
+      }
+      /**
+       * <code>required .xtech.selfomat.BoolSetting template_enabled = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          xtech.selfomat.Api.BoolSetting, xtech.selfomat.Api.BoolSetting.Builder, xtech.selfomat.Api.BoolSettingOrBuilder> 
+          getTemplateEnabledFieldBuilder() {
+        if (templateEnabledBuilder_ == null) {
+          templateEnabledBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              xtech.selfomat.Api.BoolSetting, xtech.selfomat.Api.BoolSetting.Builder, xtech.selfomat.Api.BoolSettingOrBuilder>(
+                  getTemplateEnabled(),
+                  getParentForChildren(),
+                  isClean());
+          templateEnabled_ = null;
+        }
+        return templateEnabledBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4269,12 +10305,11 @@ public final class Api {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<BoothSettings>
         PARSER = new com.google.protobuf.AbstractParser<BoothSettings>() {
-      @java.lang.Override
       public BoothSettings parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BoothSettings(input, extensionRegistry);
+          return new BoothSettings(input, extensionRegistry);
       }
     };
 
@@ -4287,7 +10322,6 @@ public final class Api {
       return PARSER;
     }
 
-    @java.lang.Override
     public xtech.selfomat.Api.BoothSettings getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -4300,15 +10334,50 @@ public final class Api {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_xtech_selfomat_Status_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_xtech_selfomat_IntUpdate_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_xtech_selfomat_IntUpdate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_xtech_selfomat_BoolUpdate_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_xtech_selfomat_BoolUpdate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_xtech_selfomat_FloatUpdate_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_xtech_selfomat_FloatUpdate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_xtech_selfomat_ReadOnlySetting_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_xtech_selfomat_ReadOnlySetting_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_xtech_selfomat_ListSetting_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_xtech_selfomat_ListSetting_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_xtech_selfomat_BoolSetting_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_xtech_selfomat_BoolSetting_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_xtech_selfomat_FloatSetting_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_xtech_selfomat_FloatSetting_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_xtech_selfomat_IntSetting_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_xtech_selfomat_IntSetting_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_xtech_selfomat_CameraSettings_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_xtech_selfomat_CameraSettings_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_xtech_selfomat_CameraChoices_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_xtech_selfomat_CameraChoices_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_xtech_selfomat_BoothSettings_descriptor;
   private static final 
@@ -4326,20 +10395,39 @@ public final class Api {
       "\n\tapi.proto\022\016xtech.selfomat\"p\n\006Status\0223\n" +
       "\rcurrent_state\030\001 \002(\0162\034.xtech.selfomat.St" +
       "atus.State\"1\n\005State\022\020\n\014INITIALIZING\020\000\022\013\n" +
-      "\007RUNNING\020\001\022\t\n\005ERROR\020\002\"\243\001\n\016CameraSettings" +
-      "\022\013\n\003iso\030\001 \002(\005\022\025\n\rshutter_speed\030\002 \002(\005\022\020\n\010" +
-      "aperture\030\003 \002(\005\022\035\n\025exposure_compensation\030" +
-      "\004 \002(\005\022\024\n\014image_format\030\005 \002(\005\022\023\n\013camera_na" +
-      "me\030\007 \002(\t\022\021\n\tlens_name\030\010 \002(\t\"\242\001\n\rCameraCh" +
-      "oices\022\023\n\013iso_choices\030\001 \003(\t\022\035\n\025shutter_sp" +
-      "eed_choices\030\002 \003(\t\022\030\n\020aperture_choices\030\003 " +
-      "\003(\t\022%\n\035exposure_compensation_choices\030\004 \003" +
-      "(\t\022\034\n\024image_format_choices\030\005 \003(\t\"\302\001\n\rBoo" +
-      "thSettings\022\027\n\017printer_enabled\030\001 \002(\010\022\025\n\rf" +
-      "lash_enabled\030\002 \002(\010\022\030\n\020flash_brightness\030\003" +
-      " \002(\002\022\022\n\nflash_fade\030\004 \002(\002\022\032\n\022flash_delay_" +
-      "micros\030\005 \002(\004\022\035\n\025flash_duration_micros\030\006 " +
-      "\002(\004\022\030\n\020template_enabled\030\007 \002(\010"
+      "\007RUNNING\020\001\022\t\n\005ERROR\020\002\"\032\n\tIntUpdate\022\r\n\005va" +
+      "lue\030\001 \002(\003\"\033\n\nBoolUpdate\022\r\n\005value\030\001 \002(\010\"\034" +
+      "\n\013FloatUpdate\022\r\n\005value\030\001 \002(\002\".\n\017ReadOnly" +
+      "Setting\022\014\n\004name\030\001 \002(\t\022\r\n\005value\030\002 \002(\t\"U\n\013" +
+      "ListSetting\022\014\n\004name\030\001 \002(\t\022\024\n\014currentInde" +
+      "x\030\002 \002(\005\022\016\n\006values\030\003 \003(\t\022\022\n\nupdate_url\030\004 " +
+      "\002(\t\"E\n\013BoolSetting\022\014\n\004name\030\001 \002(\t\022\024\n\014curr",
+      "entValue\030\002 \002(\010\022\022\n\nupdate_url\030\003 \002(\t\"j\n\014Fl" +
+      "oatSetting\022\014\n\004name\030\001 \002(\t\022\024\n\014currentValue" +
+      "\030\002 \002(\002\022\020\n\010minValue\030\003 \002(\002\022\020\n\010maxValue\030\004 \002" +
+      "(\002\022\022\n\nupdate_url\030\005 \002(\t\"h\n\nIntSetting\022\014\n\004" +
+      "name\030\001 \002(\t\022\024\n\014currentValue\030\002 \002(\003\022\020\n\010minV" +
+      "alue\030\003 \002(\003\022\020\n\010maxValue\030\004 \002(\003\022\022\n\nupdate_u" +
+      "rl\030\005 \002(\t\"\366\002\n\016CameraSettings\022(\n\003iso\030\001 \002(\013" +
+      "2\033.xtech.selfomat.ListSetting\0222\n\rshutter" +
+      "_speed\030\002 \002(\0132\033.xtech.selfomat.ListSettin" +
+      "g\022-\n\010aperture\030\003 \002(\0132\033.xtech.selfomat.Lis",
+      "tSetting\022:\n\025exposure_compensation\030\004 \002(\0132" +
+      "\033.xtech.selfomat.ListSetting\0221\n\014image_fo" +
+      "rmat\030\005 \002(\0132\033.xtech.selfomat.ListSetting\022" +
+      "4\n\013camera_name\030\007 \002(\0132\037.xtech.selfomat.Re" +
+      "adOnlySetting\0222\n\tlens_name\030\010 \002(\0132\037.xtech" +
+      ".selfomat.ReadOnlySetting\"\215\003\n\rBoothSetti" +
+      "ngs\0224\n\017printer_enabled\030\001 \002(\0132\033.xtech.sel" +
+      "fomat.BoolSetting\0222\n\rflash_enabled\030\002 \002(\013" +
+      "2\033.xtech.selfomat.BoolSetting\0226\n\020flash_b" +
+      "rightness\030\003 \002(\0132\034.xtech.selfomat.FloatSe",
+      "tting\0220\n\nflash_fade\030\004 \002(\0132\034.xtech.selfom" +
+      "at.FloatSetting\0226\n\022flash_delay_micros\030\005 " +
+      "\002(\0132\032.xtech.selfomat.IntSetting\0229\n\025flash" +
+      "_duration_micros\030\006 \002(\0132\032.xtech.selfomat." +
+      "IntSetting\0225\n\020template_enabled\030\007 \002(\0132\033.x" +
+      "tech.selfomat.BoolSetting"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4359,20 +10447,62 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xtech_selfomat_Status_descriptor,
         new java.lang.String[] { "CurrentState", });
-    internal_static_xtech_selfomat_CameraSettings_descriptor =
+    internal_static_xtech_selfomat_IntUpdate_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_xtech_selfomat_IntUpdate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_xtech_selfomat_IntUpdate_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_xtech_selfomat_BoolUpdate_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_xtech_selfomat_BoolUpdate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_xtech_selfomat_BoolUpdate_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_xtech_selfomat_FloatUpdate_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_xtech_selfomat_FloatUpdate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_xtech_selfomat_FloatUpdate_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_xtech_selfomat_ReadOnlySetting_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_xtech_selfomat_ReadOnlySetting_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_xtech_selfomat_ReadOnlySetting_descriptor,
+        new java.lang.String[] { "Name", "Value", });
+    internal_static_xtech_selfomat_ListSetting_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_xtech_selfomat_ListSetting_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_xtech_selfomat_ListSetting_descriptor,
+        new java.lang.String[] { "Name", "CurrentIndex", "Values", "UpdateUrl", });
+    internal_static_xtech_selfomat_BoolSetting_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_xtech_selfomat_BoolSetting_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_xtech_selfomat_BoolSetting_descriptor,
+        new java.lang.String[] { "Name", "CurrentValue", "UpdateUrl", });
+    internal_static_xtech_selfomat_FloatSetting_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_xtech_selfomat_FloatSetting_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_xtech_selfomat_FloatSetting_descriptor,
+        new java.lang.String[] { "Name", "CurrentValue", "MinValue", "MaxValue", "UpdateUrl", });
+    internal_static_xtech_selfomat_IntSetting_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_xtech_selfomat_IntSetting_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_xtech_selfomat_IntSetting_descriptor,
+        new java.lang.String[] { "Name", "CurrentValue", "MinValue", "MaxValue", "UpdateUrl", });
+    internal_static_xtech_selfomat_CameraSettings_descriptor =
+      getDescriptor().getMessageTypes().get(9);
     internal_static_xtech_selfomat_CameraSettings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xtech_selfomat_CameraSettings_descriptor,
         new java.lang.String[] { "Iso", "ShutterSpeed", "Aperture", "ExposureCompensation", "ImageFormat", "CameraName", "LensName", });
-    internal_static_xtech_selfomat_CameraChoices_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_xtech_selfomat_CameraChoices_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_xtech_selfomat_CameraChoices_descriptor,
-        new java.lang.String[] { "IsoChoices", "ShutterSpeedChoices", "ApertureChoices", "ExposureCompensationChoices", "ImageFormatChoices", });
     internal_static_xtech_selfomat_BoothSettings_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_xtech_selfomat_BoothSettings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xtech_selfomat_BoothSettings_descriptor,

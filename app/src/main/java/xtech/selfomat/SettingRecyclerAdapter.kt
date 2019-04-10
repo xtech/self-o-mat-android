@@ -56,9 +56,10 @@ class SettingRecyclerAdapter(
 
 
     class SettingViewHolder(private val binding: ItemSettingBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun setSetting(setting: Setting) {
+        fun setSetting(s: Setting) {
+            val setting = s as ListSetting
             binding.settingName = setting.name
-            binding.settingValue = setting.value
+            binding.settingValue = setting.possibleValues[setting.currentIndex].toString()
         }
     }
 

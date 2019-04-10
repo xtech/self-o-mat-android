@@ -24,20 +24,22 @@ class MainActivity : AppCompatActivity(), SettingRecyclerAdapter.SettingClickedL
 
         // Add some settings
         viewmodel.loadSettings()
+
+        btn_trigger.setOnClickListener {
+            viewmodel.triggerCapture()
+        }
     }
 
     override fun settingClicked(setting: Setting) {
         // Show the dialog to update the setting
-        val adapter = SettingValueDialogAdapter(setting)
+        val adapter = SettingValueDialogAdapter(setting as ListSetting)
         val dialog = AlertDialog.Builder(this).setAdapter(adapter) { dialog, which ->
             if (which !in 0 until adapter.count) {
                 dialog?.dismiss()
                 return@setAdapter
             }
 
-            (adapter.getItem(which) as? String)?.let {
-                viewmodel.updateSetting(setting, it)
-            }
+            viewmodel.updateSetting(setting.updateURL!!, which)
 
             dialog?.dismiss()
         }.create()

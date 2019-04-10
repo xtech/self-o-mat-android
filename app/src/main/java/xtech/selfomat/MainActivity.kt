@@ -5,11 +5,20 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import io.reactivex.Observable
+import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity(), SettingRecyclerAdapter.SettingClickedListener {
 
     private lateinit var viewmodel: MainViewModel
+
+    private val updateObservable = Observable.interval(1000, TimeUnit.MILLISECONDS)
+        .doOnNext {
+            viewmodel.loadSettings()
+        }
+    private var updateDisposable: Disposable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,12 +31,21 @@ class MainActivity : AppCompatActivity(), SettingRecyclerAdapter.SettingClickedL
             settingClickedListener = this@MainActivity
         }
 
-        // Add some settings
-        viewmodel.loadSettings()
-
         btn_trigger.setOnClickListener {
             viewmodel.triggerCapture()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateDisposable?.dispose()
+        updateDisposable = updateObservable.subscribe()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        updateDisposable?.dispose()
+        updateDisposable = null
     }
 
     override fun settingClicked(setting: Setting) {

@@ -2,23 +2,20 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <import type="androidx.lifecycle.LiveData"/>
-
         <variable name="setting_name" type="String"/>
-        <variable name="setting_value" type="LiveData&lt;String&gt;"/>
+        <variable name="setting_value" type="LiveData&lt;Boolean&gt;"/>
     </data>
 <LinearLayout
         android:background="?selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
         android:padding="4dp"
-              android:orientation="vertical"
+              android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@{setting_name, default=`Some Setting`}"
+    <Switch android:id="@+id/switch_checked"
+            android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:text="@{setting_name, default=`Some Setting`}"
+            android:checked="@{setting_value}"
               android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@{setting_value, default=`Some Value`}"
-              android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-    />
-
 </LinearLayout>
 </layout>

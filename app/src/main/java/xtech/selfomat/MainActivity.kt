@@ -14,11 +14,6 @@ class MainActivity : AppCompatActivity(), SettingRecyclerAdapter.SettingClickedL
 
     private lateinit var viewmodel: MainViewModel
 
-    private val updateObservable = Observable.interval(1000, TimeUnit.MILLISECONDS)
-        .doOnNext {
-            viewmodel.loadSettings()
-        }
-    private var updateDisposable: Disposable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,41 +22,38 @@ class MainActivity : AppCompatActivity(), SettingRecyclerAdapter.SettingClickedL
 
         setContentView(R.layout.activity_main)
         recycler.layoutManager = LinearLayoutManager(this)
-        recycler.adapter = SettingRecyclerAdapter(viewmodel.liveList, this).apply {
+        recycler.adapter = SettingRecyclerAdapter(viewmodel.liveCameraSettings, this).apply {
             settingClickedListener = this@MainActivity
         }
 
         btn_trigger.setOnClickListener {
             viewmodel.triggerCapture()
         }
+
+        viewmodel.loadSettings()
     }
 
-    override fun onResume() {
-        super.onResume()
-        updateDisposable?.dispose()
-        updateDisposable = updateObservable.subscribe()
-    }
+    override fun settingClicked(setting: Setting<out Any>) {
 
-    override fun onPause() {
-        super.onPause()
-        updateDisposable?.dispose()
-        updateDisposable = null
-    }
+        when(setting) {
+            is ListSetting -> {
+                // Show the dialog to update the setting
+                val adapter = SettingValueDialogAdapter(setting)
+                val dialog = AlertDialog.Builder(this).setAdapter(adapter) { dialog, which ->
+                    if (which !in 0 until adapter.count) {
+                        dialog?.dismiss()
+                        return@setAdapter
+                    }
 
-    override fun settingClicked(setting: Setting) {
-        // Show the dialog to update the setting
-        val adapter = SettingValueDialogAdapter(setting as ListSetting)
-        val dialog = AlertDialog.Builder(this).setAdapter(adapter) { dialog, which ->
-            if (which !in 0 until adapter.count) {
-                dialog?.dismiss()
-                return@setAdapter
+                    setting.update(which)
+
+
+                    dialog?.dismiss()
+                }.create()
+                dialog?.show()
             }
-
-            viewmodel.updateSetting(setting.updateURL!!, which)
-
-            dialog?.dismiss()
-        }.create()
-        dialog?.show()
+        }
     }
+
 
 }

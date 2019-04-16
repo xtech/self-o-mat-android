@@ -1,23 +1,25 @@
 package xtech.selfomat
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 
 class MainViewModel : ViewModel() {
-    val liveList = MutableLiveData<List<Setting>>()
+    val liveCameraSettings = MutableLiveData<List<Setting<out Any>>>()
+    val liveBoothSettings = MutableLiveData<List<Setting<out Any>>>()
     private val connection = BoothConnection()
 
 
-
-    private var requestObservable = Single.fromCallable {
-        Log.d("self-o-mat", "querying data")
-        connection.loadCurrentSettings()
-    }.subscribeOn(Schedulers.io())
+    private var requestObservable =
+        Single.fromCallable {
+            Pair(connection.loadCameraSettings(), connection.loadBoothSettings())
+        }.subscribeOn(Schedulers.io())
         .doOnSuccess {
-            liveList.postValue(it)
+            val completeList = mutableListOf<Setting<out Any>>()
+            completeList.addAll(it.first)
+            completeList.addAll(it.second)
+            liveCameraSettings.postValue(completeList)
         }
 
 
@@ -25,9 +27,16 @@ class MainViewModel : ViewModel() {
         requestObservable.subscribe()
     }
 
-    fun updateSetting(url: String, value: Int) {
-        Single.fromCallable { connection.updateSetting(url, value) }
+    fun updateSetting(updated: Setting<out Any>) {
+        updated.updateURL ?: return
+        Single.fromCallable { connection.updateSetting(updated) }
             .subscribeOn(Schedulers.io())
+            .doOnSuccess {
+                val currentList = liveCameraSettings.value ?: return@doOnSuccess
+                liveCameraSettings.postValue(currentList.map {
+                    if (it.updateURL == updated.updateURL) updated else it
+                })
+            }
             .subscribe()
     }
 
